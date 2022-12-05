@@ -5,10 +5,24 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Menu</title>
-    <link rel="stylesheet" href="styles">
+    <link rel="stylesheet" href="styles.css">
     <script src="script.js"></script>
 </head>
-<body>
-    
+<body id="menu">
+    <div id="warning">
+        <p id="wTitle">WARNING!</p>
+        <p id="wtext">Contains flashing lights and sudden sounds.<br><br>...<br></p>
+        <p id="wtext">Best Experienced with Headphones</p>
+        <img id="wImg" src="img/headphone.png" alt="Null">
+        <p onclick="rmWarn()" id="wButton">CONTINUE</p>
+    </div>
+    <h1 id="title" data-text="The Missing Assignment">
+        The Missing Assignment
+    </h1>
+    <p id="bMenu">Start</p>
+    <p id="bMenu">Settings</p>
+    <p id="bMenu">Credits</p>
+    <img id = "static" src="img/static.gif" alt="Null">
+    <audio id="music" src="audio/menumusic.mp3"></audio>
 </body>
 </html>
