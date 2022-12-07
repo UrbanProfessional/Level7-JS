@@ -1,9 +1,11 @@
 @import url('https://fonts.googleapis.com/css?family=Special+Elite');
 
+/* General CSS */
 body {
     background-color: black;
 }
 
+/* Main Menu CSS - - - - - - - - - - - */
 #warning {
     position: fixed;
     z-index: 2;
@@ -92,11 +94,147 @@ body {
 
 }
 
+/* Game Pages CSS - - - - - - - -*/
+#hud {
+    position: fixed;
+    z-index: 2;
+    width: 100%;
+    height: 100%;
+    left: 0;
+    top: 0;
+}
+
+#suicide {
+    padding: 0.7% 0.5% 0.5% 0.5%;
+    color: rgb(105, 0, 0);
+    font-family: 'Special Elite', monospace;
+    font-size: 100%;
+    font-weight: bold;
+    margin: 10px 0px 0px 10px;
+}
+
+#suicide:hover {
+    background-color: rgb(255, 0, 0);
+    border-color: red;
+    cursor: pointer;
+}
+
+#chatbox {
+    display: none;
+    background-color: rgb(27, 27, 27);
+    border-radius: 30px;
+    height: 20%;
+    width: 50%;
+    margin-left: 25%;
+    margin-right: 25%;
+    position: absolute;
+    bottom: 10px;
+    color: rgb(212, 209, 206);
+    font-family: 'Special Elite', monospace;
+    font-size: 130%;
+    padding: 15px 15px 15px 15px;
+}
+
+#chatbox:hover {
+    background-color: rgb(14, 14, 14);
+    cursor: pointer;   
+}
+
+#click {
+    position: absolute;
+    bottom: 0%;
+    right: 15px;
+    margin: 0 0 0 0;
+    font-weight: bold;
+}
+
+#chatboxinner {
+    margin: 0 0 0 0;
+}
+
+#yes {
+    display: none;
+    margin-left: 30%;
+    margin-right: 40%;
+    margin-top: 0;
+    margin-bottom: 0;
+    position: absolute;
+    bottom: 0%;
+    color: rgb(0, 177, 0);
+}
+#yes:hover {
+    font-weight: bolder;
+    color: rgb(0, 255, 0);
+}
+
+#no {
+    display: none;
+    margin-left: 60%;
+    margin-right: 40%;
+    margin-top: 0;
+    margin-bottom: 0;
+    position: absolute;
+    bottom: 0%;
+    color: rgb(177, 0, 0); 
+}
+#no:hover {
+    font-weight: bolder;
+    color: rgb(255, 0, 0);
+}
 
 
-
-#entrance {
-    background-image: url('/img/school.jpg');
+/* Start Page */
+#start {
+    background-image: url('/img/start.jpg');
     background-size: cover;
     background-repeat: no-repeat;
+}
+
+/* Entrance Page */
+#entrance {
+    background-image: url('/img/entrance.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+#mainentrance {
+    display: none;
+    z-index: 3;
+    position: fixed;
+    margin: 40% 50% 50% 40%;
+    width: 19%;
+    height: 120px;
+    border-radius: 10px;
+}
+#mainentrance:hover {
+    background-color: rgba(177, 2, 2, 0.301);
+    box-shadow: 0 0 20px 20px rgb(177, 2, 2, 0.301);
+}
+
+/* Hall Page */
+#hall {
+    background-image: url('/img/hall.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+/* Game Over CSS - - - - - - - - - - */
+#over {
+    color: rgb(255, 0, 0);
+    font-family: 'Special Elite', monospace;
+    font-size: 250%;
+    text-align: center;
+}
+
+#oButton {
+    color: rgb(212, 209, 206);
+    text-align: center;
+    font-family: 'Special Elite', monospace;
+    font-size: 100%;
+    margin-top: 100px;
+    text-decoration: underline;
+}
+
+#oButton:hover {
+    color: rgb(255, 0, 0);
+    cursor: pointer;
 }

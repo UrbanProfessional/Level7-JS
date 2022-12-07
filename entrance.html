@@ -4,15 +4,20 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Start</title>
+    <title>Entrance</title>
     <link rel="stylesheet" href="styles.css">
     <script src="script.js"></script>
 </head>
-<body onload="seqStart()" id="start">
+<body onload="seq1Start()" id="entrance">
     <div id="hud">
         <button onclick="location.href='over.html'" id="suicide">Suicide</button>
-        <div onclick="seqClick()" id="chatbox"><p id="chatboxinner">test</p><p id="click">Click ↓</p></div>
+        <div onclick="seq1Click()" id="chatbox">
+            <p id="chatboxinner">test</p>
+            <p onclick="yes2()" id="yes">yes</p>
+            <p onclick="no2()" id="no">no</p></P>
+            <p id="click">Click ↓</p>
+        </div>
     </div>
-    
+    <div onclick="seq2Click()" id="mainentrance"></div>
 </body>
 </html>
