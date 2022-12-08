@@ -8,16 +8,18 @@
     <link rel="stylesheet" href="styles.css">
     <script src="script.js"></script>
 </head>
-<body onload="seq1Start()" id="entrance">
+<body onload="seq1Start()">
+    <div id="entrance">
+        <div onclick="seq2Click()" id="mainentrance"></div>
+    </div>
     <div id="hud">
         <button onclick="location.href='over.html'" id="suicide">Suicide</button>
-        <div onclick="seq1Click()" id="chatbox">
-            <p id="chatboxinner">test</p>
+        <div onclick="mainClick()" id="chatbox">
+            <p id="chatboxinner"></p>
             <p onclick="yes2()" id="yes">yes</p>
             <p onclick="no2()" id="no">no</p></P>
             <p id="click">Click ↓</p>
         </div>
     </div>
-    <div onclick="seq2Click()" id="mainentrance"></div>
 </body>
 </html>

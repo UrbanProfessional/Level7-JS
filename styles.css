@@ -3,6 +3,7 @@
 /* General CSS */
 body {
     background-color: black;
+    margin: 0 0 0 0;
 }
 
 /* Main Menu CSS - - - - - - - - - - - */
@@ -153,6 +154,7 @@ body {
 }
 
 #yes {
+    z-index: 3;
     display: none;
     margin-left: 30%;
     margin-right: 40%;
@@ -168,6 +170,7 @@ body {
 }
 
 #no {
+    z-index: 3;
     display: none;
     margin-left: 60%;
     margin-right: 40%;
@@ -182,6 +185,17 @@ body {
     color: rgb(255, 0, 0);
 }
 
+#paperclip {
+    display: none;
+    position: absolute;
+    right: 30px;
+    top: 20px;
+    width: 40px;
+    height: 40px;
+    background-color: rgba(145, 0, 0, 0.501);
+    border-radius: 5px;
+    box-shadow: 0 0 5px 5px rgba(145, 0, 0, 0.501);
+}
 
 /* Start Page */
 #start {
@@ -193,28 +207,92 @@ body {
 /* Entrance Page */
 #entrance {
     background-image: url('/img/entrance.jpg');
-    background-size: cover;
+    border: 5px solid rgb(39, 0, 0);
+    background-size: contain;
     background-repeat: no-repeat;
+    width: 1500px;
+    height: 1000px;
+    margin: 0 0 0 0;
 }
 #mainentrance {
     display: none;
+    position: relative;
+    margin: 600px 0 0 630px;
     z-index: 3;
-    position: fixed;
-    margin: 40% 50% 50% 40%;
-    width: 19%;
-    height: 120px;
-    border-radius: 10px;
+    width: 250px;
+    height: 250px;
+    border-radius: 100px;
 }
 #mainentrance:hover {
     background-color: rgba(177, 2, 2, 0.301);
-    box-shadow: 0 0 20px 20px rgb(177, 2, 2, 0.301);
+    box-shadow: 0 0 60px 60px rgb(177, 2, 2, 0.301);
 }
 
 /* Hall Page */
 #hall {
     background-image: url('/img/hall.jpg');
-    background-size: cover;
+    border: 5px solid rgb(39, 0, 0);
+    background-size: contain;
     background-repeat: no-repeat;
+    width: 1335px;
+    height: 1000px;
+    margin: 0 0 0 0;
+}
+
+#bin {
+    z-index: 3;
+    display: none;
+    position: relative;
+    margin: 610px 0 0 170px;
+    width: 100px;
+    height: 100px;
+    border-radius: 100px;
+}
+#bin:hover {
+    background-color: rgba(177, 2, 2, 0.301);
+    box-shadow: 0 0 20px 20px rgb(177, 2, 2, 0.301);
+}
+
+#toLobby {
+    z-index: 3;
+    display: none;
+    position: relative;
+    margin: -380px 0 0 610px;
+    width: 100px;
+    height: 100px;
+    border-radius: 100px;
+}
+#toLobby:hover {
+    background-color: rgba(177, 2, 2, 0.301);
+    box-shadow: 0 0 30px 30px rgb(177, 2, 2, 0.301);
+}
+
+#bulletin {
+    z-index: 3;
+    display: none;
+    position: relative;
+    margin: -190px 0 0 1000px;
+    width: 250px;
+    height: 250px;
+    border-radius: 200px;
+}
+#bulletin:hover {
+    background-color: rgba(177, 2, 2, 0.301);
+    box-shadow: 0 0 40px 40px rgb(177, 2, 2, 0.301);
+}
+
+#classroom1 {
+    z-index: 3;
+    display: none;
+    position: relative;
+    margin: -190px 0 0 850px;
+    width: 50px;
+    height: 260px;
+    border-radius: 200px;
+}
+#classroom1:hover {
+    background-color: rgba(177, 2, 2, 0.301);
+    box-shadow: 0 0 20px 20px rgb(177, 2, 2, 0.301);
 }
 
 /* Game Over CSS - - - - - - - - - - */

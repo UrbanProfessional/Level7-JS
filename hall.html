@@ -8,15 +8,22 @@
     <link rel="stylesheet" href="styles.css">
     <script src="script.js"></script>
 </head>
-<body onload="seq3Start()" id="hall">
+<body onload="seq3Start()">
+    <div id="hall">
+        <div onclick="seq4Start()" id="bin"></div>
+        <div onclick="seq5Start()" id="toLobby"></div>
+        <div onclick="seq6Start()" id="bulletin"></div>
+        <div onclick="seq7Start()" id="classroom1"></div>
+    </div>
     <div id="hud">
         <button onclick="location.href='over.html'" id="suicide">Suicide</button>
-        <div onclick="seq3Click()" id="chatbox">
-            <p id="chatboxinner">test</p>
+        <div onclick="mainClick()" id="chatbox">
+            <p id="chatboxinner"></p>
             <p onclick="yes2()" id="yes">yes</p>
             <p onclick="no2()" id="no">no</p></P>
             <p id="click">Click ↓</p>
         </div>
+        <img src="img/paperclip.png" id="paperclip" alt="Null">
     </div>
 </body>
 </html>
