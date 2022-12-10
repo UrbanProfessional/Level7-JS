@@ -63,6 +63,7 @@ body {
     font-family: 'Special Elite', monospace;
     position: relative;
     font-size: xx-large;
+    margin-left: 10px;
 }
 
 #title {
@@ -162,11 +163,11 @@ body {
     margin-bottom: 0;
     position: absolute;
     bottom: 0%;
-    color: rgb(0, 177, 0);
+    color: rgb(150, 0, 0);
 }
 #yes:hover {
     font-weight: bolder;
-    color: rgb(0, 255, 0);
+    color: rgb(255, 0, 0);
 }
 
 #no {
@@ -178,7 +179,7 @@ body {
     margin-bottom: 0;
     position: absolute;
     bottom: 0%;
-    color: rgb(177, 0, 0); 
+    color: rgb(150, 0, 0);
 }
 #no:hover {
     font-weight: bolder;
@@ -295,12 +296,127 @@ body {
     box-shadow: 0 0 20px 20px rgb(177, 2, 2, 0.301);
 }
 
+/* Lobby Page */
+
+#lobby {
+    background-image: url('/img/lobby.jpg');
+    border: 5px solid rgb(39, 0, 0);
+    background-size: contain;
+    background-repeat: no-repeat;
+    width: 1600px;
+    height: 1200px;
+    margin: 0 0 0 0;
+}
+
+#audiDoor {
+    z-index: 3;
+    display: block;
+    position: absolute;
+    margin: 370px 0 0 790px;
+    width: 120px;
+    height: 240px;
+    border-radius: 100px;
+}
+#audiDoor:hover {
+    background-color: rgba(177, 2, 2, 0.301);
+    box-shadow: 0 0 30px 30px rgb(177, 2, 2, 0.301);
+}
+
+#staircase {
+    z-index: 3;
+    display: block;
+    position: absolute;
+    margin: 400px 0 0 -25px;
+    width: 100px;
+    height: 180px;
+    border-radius: 100px;
+}
+#staircase:hover {
+    background-color: rgba(177, 2, 2, 0.301);
+    box-shadow: 0 0 30px 30px rgb(177, 2, 2, 0.301);
+}
+
+#display {
+    z-index: 3;
+    display: block;
+    position: absolute;
+    margin: 415px 0 0 280px;
+    width: 350px;
+    height: 100px;
+    border-radius: 100px;
+}
+#display:hover {
+    background-color: rgba(177, 2, 2, 0.301);
+    box-shadow: 0 0 50px 50px rgb(177, 2, 2, 0.301);
+}
+
+
+#audiBoard {
+    z-index: 2;
+    display: block;
+    position: absolute;
+    top: 480px;
+    left: 790px;
+    height: 40px;
+    width: 130px;
+    transform: rotate(32deg)
+}
+
+#audiBoard2 {
+    z-index: 2;
+    display: block;
+    position: absolute;
+    top: 550px;
+    left: 800px;
+    height: 40px;
+    width: 118px;
+    transform: rotate(-20deg)
+}
+
+#audiBoard3 {
+    z-index: 2;
+    display: none;
+    position: absolute;
+    top: 650px;
+    left: 900px;
+    height: 20px;
+    width: 120px;
+    transform: rotate(9deg)
+}
+
+#audiBoard4 {
+    z-index: 2;
+    display: none;
+    position: absolute;
+    top: 650px;
+    left: 900px;
+    height: 25px;
+    width: 120px;
+    transform: rotate(-9deg)
+}
+
+/* Auditorium Page */
+#audi {
+    background-image: url('/img/auditorium.jpg');
+    border: 5px solid rgb(39, 0, 0);
+    background-size: cover;
+    background-repeat: no-repeat;
+    width: 1536px;
+    height: 1152px;
+    margin: 0 0 0 0;
+}
+
 /* Game Over CSS - - - - - - - - - - */
 #over {
     color: rgb(255, 0, 0);
     font-family: 'Special Elite', monospace;
     font-size: 250%;
     text-align: center;
+}
+
+#oText {
+    color: rgb(212, 209, 206);
+    font-size: 80%;
 }
 
 #oButton {
@@ -313,6 +429,33 @@ body {
 }
 
 #oButton:hover {
+    color: rgb(255, 0, 0);
+    cursor: pointer;
+}
+
+/* Game Win CSS */
+#win {
+    color: rgb(0, 255, 0);
+    font-family: 'Special Elite', monospace;
+    font-size: 250%;
+    text-align: center;
+}
+
+#winText {
+    color: rgb(212, 209, 206);
+    font-size: 80%;
+}
+
+#winButton {
+    color: rgb(212, 209, 206);
+    text-align: center;
+    font-family: 'Special Elite', monospace;
+    font-size: 100%;
+    margin-top: 100px;
+    text-decoration: underline;
+}
+
+#winButton:hover {
     color: rgb(255, 0, 0);
     cursor: pointer;
 }
