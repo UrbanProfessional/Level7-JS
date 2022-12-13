@@ -4,14 +4,24 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Classroom 1</title>
+    <title>Classroom</title>
     <link rel="stylesheet" href="styles.css">
     <script src="script.js"></script>
 </head>
-<body id="class1">
+<body onload="seq16Start()">
+    <div id="classroom">
+        <div onclick="seq17Start()" class="interact" id="locker1"></div>
+        <div onclick="seq18Start()" class="interact" id="locker2"></div>
+        <div onclick="seq19Start()" class="interact" id="locker3"></div>
+    </div>
     <div id="hud">
         <button onclick="location.href='over.html'" id="suicide">Suicide</button>
-        <div id="chatbox"><p id="click">Click ↓</p></div>
+        <div onclick="mainClick()" id="chatbox">
+            <p id="chatboxinner"></p>
+            <p onclick="yes2()" id="yes">yes</p>
+            <p onclick="no2()" id="no">no</p></P>
+            <p id="click">Click ↓</p>
+        </div>
     </div>
 </body>
 </html>

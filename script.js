@@ -9,25 +9,30 @@ function gameOver() {
     window.location.href="over.html";
 }
 
+// Game Start Init
+function init() {
+    window.location.href="start.html";
+    //Sequences Variables Init
+    localStorage.setItem('paperclip', 0)
+    localStorage.setItem('clipfound', 0);
+    localStorage.setItem('c1locked', 1);
+    localStorage.setItem('crowbar', 0);
+    localStorage.setItem('audiBoarded', 1);
+    localStorage.setItem('stairLock', 1);
+    localStorage.setItem('stairKey', 0);
+    localStorage.setItem('lockerLock', 1);
+
+// First Visit Variables
+    localStorage.setItem('hallwayFirst', 1);   
+    localStorage.setItem('lobbyFirst', 1);
+    localStorage.setItem('class1First', 1);
+    localStorage.setItem('audiFirst' , 1);
+}
+
 // Scripted Sequences for the Pages - - - - - - - - - - /
 
 // Sequence Management Init
 active = 0;
-
-// Hallway Sequences Variables
-paperclip = 0;
-clipfound = 0;
-c1locked = 1;
-crowbar = 0;
-audiBoarded = 1;
-stairLock = 1;
-stairKey = 0;
-
-// First Visit Variables
-hallwayFirst = 1;
-lobbyFirst = 1;
-class1First = 1;
-audiFirst = 1;
 
 // Start Page Sequence
 seq = 0;
@@ -154,7 +159,7 @@ function seq3Start() {
 function seq3Click() {
     if (active == 3) {
         seq3++;
-        if (hallwayFirst == 1) {
+        if (parseInt(localStorage.getItem('hallwayFirst'))) {
             switch(seq3) {
                 case 0:
                     break;
@@ -172,7 +177,7 @@ function seq3Click() {
                     document.getElementById("chatboxinner").innerText = "I... feel it, whatever I need to do is somewhere up on the next floors."; 
                     break; 
                 case 5:
-                    hallwayFirst = 0;
+                    localStorage.setItem('hallwayFirst', 0);
                     document.getElementById("chatbox").style.display = "none"; 
                     document.getElementById("bin").style.display = "block"; 
                     document.getElementById("toLobby").style.display = "block"; 
@@ -218,7 +223,7 @@ function seq4Start() {
 
 function seq4Click() {
     if (active == 4) {
-        if (paperclip == 0 && clipfound == 0) {
+        if (parseInt(localStorage.getItem('paperclip')) == 0 && parseInt(localStorage.getItem('clipfound')) == 0) {
     seq4++;
     switch(seq4) {
         case 2:
@@ -236,8 +241,8 @@ function seq4Click() {
         case 6:
             document.getElementById("chatboxinner").style.fontStyle = "Italic"; 
             document.getElementById("chatboxinner").innerText = "*You put the papers back in the bin and take the paperclip*";
-            paperclip = 1; 
-            clipfound = 1; 
+            localStorage.setItem('paperclip', 1); 
+            localStorage.setItem('clipfound', 1); 
             document.getElementById("paperclip").style.display = "block";
             break;
         case 7:
@@ -344,7 +349,7 @@ function seq7Start() {
         case 0:
             break;
         case 1:
-            if (c1locked == 1) {
+            if (parseInt(localStorage.getItem('c1locked')) == 1) {
                 document.getElementById("chatbox").style.display = "block";
                 document.getElementById("bin").style.display = "none"; 
                 document.getElementById("toLobby").style.display = "none"; 
@@ -371,7 +376,7 @@ function seq7Start() {
 function seq7Click() {
     if (active == 7) {
         seq7++
-        if (c1locked == 0) {
+        if (parseInt(localStorage.getItem('c1locked')) == 0) {
             switch(seq7) {
                 case 2:
                     document.getElementById("chatbox").style.display = "block";
@@ -381,7 +386,7 @@ function seq7Click() {
                     break;
             }
         } else {
-            if (paperclip == 1) {
+            if (parseInt(localStorage.getItem('paperclip')) == 1) {
                 switch(seq7) {
                     case 2:
                         document.getElementById("chatboxinner").innerText = "I have a paperclip on hand, perhaps I could try to pick this lock..."; 
@@ -436,7 +441,7 @@ function seq8Start() {
 function seq8Click() {
     if (active == 8) {
         seq8++
-        if (lobbyFirst == 1) {
+        if (parseInt(localStorage.getItem('lobbyFirst')) == 1) {
             switch(seq8) {
                 case 2:
                     document.getElementById("chatboxinner").style.fontStyle = "normal";
@@ -447,12 +452,19 @@ function seq8Click() {
                     break; 
                 case 4:
                     document.getElementById("chatbox").style.display = "none"; 
+                    document.getElementById("audiDoor").style.display = "block"; 
+                    document.getElementById("display").style.display = "block"; 
+                    document.getElementById("staircase").style.display = "block";
+                    localStorage.setItem('lobbyFirst', 1);
                     break; 
             }
         } else {
             switch(seq8) {
                 case 2:
                     document.getElementById("chatbox").style.display = "none"; 
+                    document.getElementById("audiDoor").style.display = "block"; 
+                    document.getElementById("display").style.display = "block"; 
+                    document.getElementById("staircase").style.display = "block"; 
                     break;
             }
         }
@@ -467,43 +479,53 @@ function seq9Start() {
     active = 9;
     seq9 = 0;
     seq9++
+    document.getElementById("audiDoor").style.display = "none"; 
+    document.getElementById("display").style.display = "none"; 
+    document.getElementById("staircase").style.display = "none";
     switch(seq9) {
         case 0:
             break;
         case 1:
             document.getElementById("chatbox").style.display = "block";
             document.getElementById("chatboxinner").style.fontStyle = "normal";
-            document.getElementById("chatboxinner").innerText = "This is the main entrance to the auditorium, it's boarded up..."; 
+            document.getElementById("chatboxinner").innerText = "This is the main entrance to the auditorium..."; 
             break;   
     }
 }
 function seq9Click() {
     if (active == 9) {
         seq9++
-        if (crowbar == 0 && audiBoarded == 1) {
+        if (parseInt(localStorage.getItem('crowbar')) == 0 && parseInt(localStorage.getItem('audiBoarded')) == 1) {
             switch(seq9) {
                 case 2:
-                    document.getElementById("chatboxinner").innerText = "The planks are held up by nails, I could probably use some pry tool to remove them...";
+                    document.getElementById("chatboxinner").innerText = "It's boarded up with planks, I could probably use some pry tool to remove them...";
                     break; 
                 case 3:
                     document.getElementById("chatboxinner").innerText = "No clue where I would find such a tool though.";
                     break; 
                 case 4:
                     document.getElementById("chatbox").style.display = "none";
+                    document.getElementById("audiDoor").style.display = "block"; 
+                    document.getElementById("display").style.display = "block"; 
+                    document.getElementById("staircase").style.display = "block"; 
                     break; 
             }
-        } else if (crowbar == 1 && audiBoarded == 1) {
+        } else if (parseInt(localStorage.getItem('crowbar')) == 1 && parseInt(localStorage.getItem('audiBoarded')) == 1) {
             switch(seq9) {
                 case 2:
-                    document.getElementById("chatboxinner").innerText = "The planks are held up by nails, I could use this crowbar to remove them...";
+                    document.getElementById("chatboxinner").innerText = "It's boarded up with planks, I could use this crowbar to remove them...";
                     break; 
                 case 3:
                     document.getElementById("chatboxinner").style.fontStyle = "Italic";
                     document.getElementById("chatboxinner").innerText = "*You wedge the crowbar and pry the planks off*";
+                    document.getElementById("audiBoard").style.display = "none";
+                    document.getElementById("audiBoard2").style.display = "none";
+                    document.getElementById("audiBoard3").style.display = "block";
+                    document.getElementById("audiBoard4").style.display = "block";
                     break; 
                 case 4:
                     document.getElementById("chatboxinner").style.fontStyle = "normal";
-                    document.getElementById("chatbox").style.display = "The doors seem to budge now, should I head into the auditorium?";
+                    document.getElementById("chatboxinner").innerText = "The doors seem to budge now, should I head into the auditorium?";
                     document.getElementById("yes").style.display = "block";
                     document.getElementById("no").style.display = "block";
                     break; 
@@ -512,7 +534,7 @@ function seq9Click() {
             switch(seq9) {
                 case 2:
                     document.getElementById("chatboxinner").style.fontStyle = "normal";
-                    document.getElementById("chatbox").style.display = "Should I head into the auditorium?";
+                    document.getElementById("chatboxinner").innerText = "Should I head into the auditorium?";
                     document.getElementById("yes").style.display = "block";
                     document.getElementById("no").style.display = "block";
                     break; 
@@ -528,6 +550,9 @@ function seq10Start() {
     active = 10;
     seq10 = 0;
     seq10++
+    document.getElementById("audiDoor").style.display = "none"; 
+    document.getElementById("display").style.display = "none"; 
+    document.getElementById("staircase").style.display = "none"; 
     switch(seq10) {
         case 0:
             break;
@@ -559,7 +584,10 @@ function seq10Click() {
                 document.getElementById("chatboxinner").innerText = "For some reason that name sends chills down my spine."; 
                 break;
             case 7:
-                document.getElementById("chatbox").style.display = "none"; 
+                document.getElementById("chatbox").style.display = "none";
+                document.getElementById("audiDoor").style.display = "block"; 
+                document.getElementById("display").style.display = "block"; 
+                document.getElementById("staircase").style.display = "block"; 
                 break;
         }
     }
@@ -572,6 +600,9 @@ function seq11Start() {
     active = 11;
     seq11 = 0;
     seq11++
+    document.getElementById("audiDoor").style.display = "none"; 
+    document.getElementById("display").style.display = "none"; 
+    document.getElementById("staircase").style.display = "none";
     switch(seq11) {
         case 0:
             break;
@@ -586,7 +617,7 @@ function seq11Start() {
 function seq11Click() {
     if (active == 11) {
         seq11++;
-        if (stairKey == 0 && stairLock == 1 && paperclip == 0) {
+        if (parseInt(localStorage.getItem('stairKey')) == 0 && parseInt(localStorage.getItem('stairLock')) == 1 && parseInt(localStorage.getItem('paperclip')) == 0) {
             switch(seq11) {
                 case 2:
                     document.getElementById("chatboxinner").innerText = "It looks to be locked by a complex key lock..."; 
@@ -596,9 +627,12 @@ function seq11Click() {
                     break;
                 case 4:
                     document.getElementById("chatbox").style.display = "none";
+                    document.getElementById("audiDoor").style.display = "block"; 
+                    document.getElementById("display").style.display = "block"; 
+                    document.getElementById("staircase").style.display = "block"; 
                     break;            
             }
-        } else if (stairKey == 1 && stairLock == 1) {
+        } else if (parseInt(localStorage.getItem('stairKey')) == 1 && parseInt(localStorage.getItem('stairLock')) == 1) {
             switch(seq11) {
                 case 2:
                     document.getElementById("chatboxinner").innerText = "It looks to be locked by a complex key lock..."; 
@@ -617,7 +651,7 @@ function seq11Click() {
                     document.getElementById("no").style.display = "block";
                     break;          
             }
-        } else if (stairLock == 0) {
+        } else if (parseInt(localStorage.getItem('stairLock')) == 0) {
             switch(seq11) {
                 case 2:
                     document.getElementById("chatboxinner").innerText = "Should I head up to the next floor?"; 
@@ -625,7 +659,7 @@ function seq11Click() {
                     document.getElementById("no").style.display = "block";
                     break;
             }
-        } else if (stairKey == 0 && stairLock == 1 && paperclip == 1) {
+        } else if (parseInt(localStorage.getItem('stairKey')) == 0 && parseInt(localStorage.getItem('stairLock')) == 1 && parseInt(localStorage.getItem('paperclip')) == 1) {
             switch(seq11) {
                 case 2:
                     document.getElementById("chatboxinner").innerText = "It looks to be locked by a complex key lock..."; 
@@ -648,10 +682,312 @@ function seq11Click() {
                case 7:
                     document.getElementById("chatboxinner").style.fontStyle = "normal";
                     document.getElementById("chatbox").style.display = "none";
+                    document.getElementById("audiDoor").style.display = "block"; 
+                    document.getElementById("display").style.display = "block"; 
+                    document.getElementById("staircase").style.display = "block"; 
                     break;    
             }
         }
 
+    }
+}
+
+// Sequence 12
+seq12 = 0;
+
+function seq12Start() {
+    active = 12;
+    seq12 = 0;
+    seq12++
+    document.getElementById("backstage").style.display = "none"; 
+    document.getElementById("exit1").style.display = "none"; 
+    document.getElementById("exit2").style.display = "none";
+    switch(seq12) {
+        case 0:
+            break;
+        case 1:
+            document.getElementById("chatbox").style.display = "block";
+            document.getElementById("chatboxinner").style.fontStyle = "Italic";
+            document.getElementById("chatboxinner").innerText = "*You arrive in the auditorium...*"; 
+            break;   
+    }
+}
+
+function seq12Click() {
+    if (active == 12) {
+        seq12++
+        if (parseInt(localStorage.getItem('audiFirst')) == 1) {
+            switch(seq12) {
+                case 2:
+                    document.getElementById("chatboxinner").style.fontStyle = "normal";
+                    document.getElementById("chatboxinner").innerText = "I remember all the concerts that happened here..."; 
+                    break; 
+                case 3:
+                    document.getElementById("chatboxinner").innerText = "Now, all I hear is a deafening silence."; 
+                    break; 
+                case 4:
+                    document.getElementById("chatbox").style.display = "none"; 
+                    document.getElementById("audiDoor").style.display = "block"; 
+                    document.getElementById("display").style.display = "block"; 
+                    document.getElementById("staircase").style.display = "block"; 
+                    break; 
+            }
+        } else {
+            switch(seq8) {
+                case 2:
+                    document.getElementById("chatbox").style.display = "none"; 
+                    document.getElementById("backstage").style.display = "block"; 
+                    document.getElementById("exit1").style.display = "block"; 
+                    document.getElementById("exit2").style.display = "block"; 
+                    break;
+            }
+        }
+    }
+}
+
+// Sequence 16
+seq16 = 0;
+
+function seq16Start() {
+    active = 16;
+    seq16 = 0;
+    seq16++
+    document.getElementById("locker1").style.display = "none"; 
+    document.getElementById("locker2").style.display = "none"; 
+    document.getElementById("locker3").style.display = "none";
+    switch(seq16) {
+        case 0:
+            break;
+        case 1:
+            document.getElementById("chatbox").style.display = "block";
+            document.getElementById("chatboxinner").style.fontStyle = "Italic";
+            document.getElementById("chatboxinner").innerText = "*You arrive in the classroom...*"; 
+            break;   
+    }
+}
+
+function seq16Click() {
+    if (active == 16) {
+        seq16++
+        if (parseInt(localStorage.getItem('class1First')) == 1) {
+            switch(seq16) {
+                case 2:
+                    document.getElementById("chatboxinner").style.fontStyle = "normal";
+                    document.getElementById("chatboxinner").innerText = "This view makes me feel like a kid again..."; 
+                    break; 
+                case 3:
+                    document.getElementById("chatboxinner").innerText = "I wonder how things would be if the incidents never happened."; 
+                    break; 
+                case 4:
+                    document.getElementById("chatbox").style.display = "none"; 
+                    document.getElementById("locker1").style.display = "block"; 
+                    document.getElementById("locker2").style.display = "block"; 
+                    document.getElementById("locker3").style.display = "block"; 
+                    break; 
+            }
+        } else {
+            switch(seq8) {
+                case 2:
+                    document.getElementById("chatbox").style.display = "none"; 
+                    document.getElementById("locker1").style.display = "block"; 
+                    document.getElementById("locker2").style.display = "block"; 
+                    document.getElementById("locker3").style.display = "block"; 
+                    break;
+            }
+        }
+    }
+}
+
+// Sequence 17
+function seq17Start() {
+    active = 17;
+    seq17 = 0;
+    seq17++
+    document.getElementById("locker1").style.display = "none"; 
+    document.getElementById("locker2").style.display = "none"; 
+    document.getElementById("locker3").style.display = "none";
+    switch(seq17) {
+        case 0:
+            break;
+        case 1:
+            document.getElementById("chatbox").style.display = "block";
+            document.getElementById("chatboxinner").style.fontStyle = "normal";
+            document.getElementById("chatboxinner").innerText = "It's a random students locker, its unlocked..."; 
+            break;   
+    }
+}
+
+function seq17Click() {
+    if (active == 17) {
+        seq17++
+        switch(seq17) {
+            case 2:
+                document.getElementById("chatboxinner").style.fontStyle = "normal";
+                document.getElementById("chatboxinner").innerText = "There's a gym uniform here, and some assorted textbooks..."; 
+                break;
+            case 3:
+                document.getElementById("chatboxinner").innerText = "After all that has happened, I wonder why these are still here"; 
+                break; 
+            case 4:
+                document.getElementById("chatbox").style.display = "none";
+                document.getElementById("locker1").style.display = "block"; 
+                document.getElementById("locker2").style.display = "block"; 
+                document.getElementById("locker3").style.display = "block"; 
+                break;
+        }
+    }
+}
+
+// Sequence 18
+function seq18Start() {
+    active = 18;
+    seq18 = 0;
+    seq18++
+    document.getElementById("locker1").style.display = "none"; 
+    document.getElementById("locker2").style.display = "none"; 
+    document.getElementById("locker3").style.display = "none";
+    switch(seq18) {
+        case 0:
+            break;
+        case 1:
+            document.getElementById("chatbox").style.display = "block";
+            document.getElementById("chatboxinner").style.fontStyle = "normal";
+            document.getElementById("chatboxinner").innerText = "It's a generic locker, missing its lock..."; 
+            break;   
+    }
+}
+
+function seq18Click() {
+    if (active == 18) {
+        seq18++
+        switch(seq18) {
+            case 2:
+                document.getElementById("chatboxinner").style.fontStyle = "normal";
+                document.getElementById("chatboxinner").innerText = "There are some boxes and assorted papers here..."; 
+                break;
+            case 3:
+                document.getElementById("chatboxinner").innerText = "Among them are random worksheets and assignments..."; 
+                break; 
+            case 4:
+                document.getElementById("chatboxinner").innerText = "There is one paper, ripped in half unlike the rest..."; 
+                break; 
+            case 5:
+                document.getElementById("chatboxinner").innerText = "It titles as a notice for the backstage crew, dated to a few weeks before closing..."; 
+                break;
+            case 6:
+                document.getElementById("chatboxinner").innerText = "Besides the title the notice reads..."; 
+                break;  
+            case 7:
+                document.getElementById("chatboxinner").innerText = "'Due to security locking up after 5pm, we will store a copy of the...'"; 
+                break; 
+            case 8:
+                document.getElementById("chatboxinner").innerText = "Then it cuts off at the rip..."; 
+                break; 
+            case 9:
+                document.getElementById("chatbox").style.display = "none";
+                document.getElementById("locker1").style.display = "block"; 
+                document.getElementById("locker2").style.display = "block"; 
+                document.getElementById("locker3").style.display = "block"; 
+                break;
+        }
+    }
+}
+
+// Sequence 19
+function seq19Start() {
+    active = 19;
+    seq19 = 0;
+    seq19++
+    document.getElementById("locker1").style.display = "none"; 
+    document.getElementById("locker2").style.display = "none"; 
+    document.getElementById("locker3").style.display = "none";
+    switch(seq19) {
+        case 0:
+            break;
+        case 1:
+            document.getElementById("chatbox").style.display = "block";
+            document.getElementById("chatboxinner").style.fontStyle = "normal";
+            document.getElementById("chatboxinner").innerText = "It's a teacher's locker, it has a name tag on it..."; 
+            break;   
+    }
+}
+
+function seq19Click() {
+    if (active == 19) {
+        seq19++
+        switch(seq19) {
+            case 2:
+                document.getElementById("chatboxinner").innerText = "The old tag is peeling off at multiple points..."; 
+                break;
+            case 3:
+                document.getElementById("chatboxinner").innerText = "I can only see the last few letters of their name..."; 
+                break;
+            case 4:
+                document.getElementById("chatboxinner").innerText = "It reads 'sen'..."; 
+                break;
+        }
+        if (parseInt(localStorage.getItem('paperclip')) == 1 && parseInt(localStorage.getItem('lockerLock')) == 1) {
+            switch(seq19) {
+                case 5:
+                    document.getElementById("chatboxinner").innerText = "It's locked, I could try to open this locker with the paperclip"; 
+                    break;  
+                case 6:
+                    document.getElementById("chatboxinner").style.fontStyle = "Italic";
+                    document.getElementById("chatboxinner").innerText = "*You insert the paperclip into the lock and after 10 or so minutes..."; 
+                    break;  
+                case 7:
+                    document.getElementById("chatboxinner").style.fontStyle = "normal";
+                    document.getElementById("chatboxinner").innerText = "It clicked! Perhaps I am not as bad at lockpicking as I think..."; 
+                    break; 
+                case 8:
+                    document.getElementById("chatboxinner").style.fontStyle = "Italic";
+                    document.getElementById("chatboxinner").innerText = "*You creak open the locker and look inside*"; 
+                    break;
+                case 9:
+                    document.getElementById("chatboxinner").style.fontStyle = "normal";
+                    document.getElementById("chatboxinner").innerText = "There's a crowbar in here! This could definitely come in handy..."; 
+                    break;
+                case 10:
+                    document.getElementById("chatboxinner").innerText = "Seems the crowbar has some old blood on it, the whole locker reeks of iron..."; 
+                    break;
+                case 11:
+                    document.getElementById("chatboxinner").innerText = "Am I holding a murder weapon? How did the investigation miss this?"; 
+                    break;
+                case 12:
+                    document.getElementById("chatbox").style.display = "none";
+                    document.getElementById("locker1").style.display = "block"; 
+                    document.getElementById("locker2").style.display = "block"; 
+                    document.getElementById("locker3").style.display = "block"; 
+                    localStorage.setItem('crowbar', 1);
+                    break;
+
+            }
+            if (parseInt(localStorage.getItem('paperclip')) == 0 && parseInt(localStorage.getItem('lockerLick')) == 1) {
+                switch(seq19) {
+                    case 5:
+                        document.getElementById("chatboxinner").innerText = "It's locked by an old school lock, I could probably pick this with something."; 
+                        break; 
+                    case 6:
+                        document.getElementById("chatbox").style.display = "none";
+                        document.getElementById("locker1").style.display = "block"; 
+                        document.getElementById("locker2").style.display = "block"; 
+                        document.getElementById("locker3").style.display = "block"; 
+                        break;
+                }
+            } else {
+                switch(seq19) {
+                    case 5:
+                        document.getElementById("chatboxinner").innerText = "It still reeks of blood in this locker."; 
+                        break; 
+                    case 6:
+                        document.getElementById("chatbox").style.display = "none";
+                        document.getElementById("locker1").style.display = "block"; 
+                        document.getElementById("locker2").style.display = "block"; 
+                        document.getElementById("locker3").style.display = "block"; 
+                        break;
+                }
+            }
+        }
     }
 }
 
@@ -675,6 +1011,11 @@ function mainClick() {
     seq9Click();
     seq10Click();
     seq11Click();
+    seq12Click();
+    seq16Click();
+    seq17Click();
+    seq18Click();
+    seq19Click();
 }
 
 // Yes No Prompt Functions - - - - - - - - 
@@ -698,8 +1039,7 @@ function yes2() {
             document.getElementById("chatbox").style.display = "none";
             window.location.href="class1.html";
             seq7 = 0;
-            paperclip = 0;
-            c1locked = 0;
+            localStorage.setItem('c1locked', 0)
             break;
         case 9:
             document.getElementById("yes").style.display = "none";
@@ -711,7 +1051,7 @@ function yes2() {
             document.getElementById("yes").style.display = "none";
             document.getElementById("no").style.display = "none";
             document.getElementById("chatbox").style.display = "none";
-            stairLock = 0; 
+            localStorage.setItem('stairLock', 0)
             window.location.href="win.html";
             break;
     }
@@ -744,19 +1084,25 @@ function no2() {
             document.getElementById("bulletin").style.display = "block";
             document.getElementById("classroom1").style.display = "block";
             seq7 = 0;
-            paperclip = 0;
-            c1locked = 0;
+            localStorage.setItem('c1locked', 0)
             break;
         case 9:
             document.getElementById("yes").style.display = "none";
             document.getElementById("no").style.display = "none";
             document.getElementById("chatbox").style.display = "none";
+            document.getElementById("audiDoor").style.display = "block"; 
+            document.getElementById("display").style.display = "block"; 
+            document.getElementById("staircase").style.display = "block";
+            localStorage.setItem('audiBoarded', 0)
             break;
         case 11:
             document.getElementById("yes").style.display = "none";
             document.getElementById("no").style.display = "none";
             document.getElementById("chatbox").style.display = "none";
-            stairLock = 0; 
+            document.getElementById("audiDoor").style.display = "block"; 
+            document.getElementById("display").style.display = "block"; 
+            document.getElementById("staircase").style.display = "block"; 
+            localStorage.setItem('stairLock', 0)
             break;
     }
 }
