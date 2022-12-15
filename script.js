@@ -29,6 +29,17 @@ function init() {
     localStorage.setItem('audiFirst' , 1);
 }
 
+
+// Item Icon Load
+function itemLoad() {
+    if (parseInt(localStorage.getItem('paperclip')) == 1) {
+        document.getElementById("paperclip").style.display = "block";
+    }
+    if (parseInt(localStorage.getItem('crowbar')) == 1) {
+        document.getElementById("crowbar").style.display = "block";
+    }
+}
+
 // Scripted Sequences for the Pages - - - - - - - - - - /
 
 // Sequence Management Init
@@ -38,6 +49,7 @@ active = 0;
 seq = 0;
 
 function seqStart() {
+    seq = 0;
     document.getElementById("chatbox").style.display = "block";
     document.getElementById("chatboxinner").innerText = "The nightmares, the yearning, the insanity, all lead to here...";
 }
@@ -124,6 +136,7 @@ seq2 = 0;
 
 function seq2Click() {
     if (active == 2) {
+    seq2 = 0;
     seq2++;
     switch(seq2) {
         case 0:
@@ -146,7 +159,9 @@ function seq2Click() {
 seq3 = 0;
 
 function seq3Start() {
+    seq3 = 0;
     active = 3;
+    itemLoad();
     document.getElementById("chatbox").style.display = "block";
     document.getElementById("bin").style.display = "none"; 
     document.getElementById("toLobby").style.display = "none"; 
@@ -206,6 +221,7 @@ function seq3Click() {
 seq4 = 0;
 function seq4Start() {
     active = 4;
+    seq4 = 0;
     seq4++
     switch(seq4) {
         case 0:
@@ -425,9 +441,17 @@ function seq7Click() {
 seq8 = 0;
 
 function seq8Start() {
+    if (parseInt(localStorage.getItem('audiBoarded')) == 1) {
+        document.getElementById("audiBoard").style.display = "block";
+        document.getElementById("audiBoard2").style.display = "block";
+    } else {
+        document.getElementById("audiBoard3").style.display = "block";
+        document.getElementById("audiBoard4").style.display = "block";
+    }
     active = 8;
     seq8 = 0;
     seq8++
+    itemLoad();
     switch(seq8) {
         case 0:
             break;
@@ -455,7 +479,7 @@ function seq8Click() {
                     document.getElementById("audiDoor").style.display = "block"; 
                     document.getElementById("display").style.display = "block"; 
                     document.getElementById("staircase").style.display = "block";
-                    localStorage.setItem('lobbyFirst', 1);
+                    localStorage.setItem('lobbyFirst', 0);
                     break; 
             }
         } else {
@@ -699,6 +723,7 @@ function seq12Start() {
     active = 12;
     seq12 = 0;
     seq12++
+    itemLoad();
     document.getElementById("backstage").style.display = "none"; 
     document.getElementById("exit1").style.display = "none"; 
     document.getElementById("exit2").style.display = "none";
@@ -727,13 +752,14 @@ function seq12Click() {
                     break; 
                 case 4:
                     document.getElementById("chatbox").style.display = "none"; 
-                    document.getElementById("audiDoor").style.display = "block"; 
-                    document.getElementById("display").style.display = "block"; 
-                    document.getElementById("staircase").style.display = "block"; 
+                    document.getElementById("backstage").style.display = "block"; 
+                    document.getElementById("exit1").style.display = "block"; 
+                    document.getElementById("exit2").style.display = "block"; 
+                    localStorage.setItem('audiFirst', 0);
                     break; 
             }
         } else {
-            switch(seq8) {
+            switch(seq12) {
                 case 2:
                     document.getElementById("chatbox").style.display = "none"; 
                     document.getElementById("backstage").style.display = "block"; 
@@ -752,6 +778,7 @@ function seq16Start() {
     active = 16;
     seq16 = 0;
     seq16++
+    itemLoad();
     document.getElementById("locker1").style.display = "none"; 
     document.getElementById("locker2").style.display = "none"; 
     document.getElementById("locker3").style.display = "none";
@@ -782,11 +809,12 @@ function seq16Click() {
                     document.getElementById("chatbox").style.display = "none"; 
                     document.getElementById("locker1").style.display = "block"; 
                     document.getElementById("locker2").style.display = "block"; 
-                    document.getElementById("locker3").style.display = "block"; 
+                    document.getElementById("locker3").style.display = "block";
+                    localStorage.setItem('class1First', 0); 
                     break; 
             }
         } else {
-            switch(seq8) {
+            switch(seq16) {
                 case 2:
                     document.getElementById("chatbox").style.display = "none"; 
                     document.getElementById("locker1").style.display = "block"; 
@@ -946,6 +974,7 @@ function seq19Click() {
                 case 9:
                     document.getElementById("chatboxinner").style.fontStyle = "normal";
                     document.getElementById("chatboxinner").innerText = "There's a crowbar in here! This could definitely come in handy..."; 
+                    document.getElementById("crowbar").style.display = "block";
                     break;
                 case 10:
                     document.getElementById("chatboxinner").innerText = "Seems the crowbar has some old blood on it, the whole locker reeks of iron..."; 
@@ -959,37 +988,78 @@ function seq19Click() {
                     document.getElementById("locker2").style.display = "block"; 
                     document.getElementById("locker3").style.display = "block"; 
                     localStorage.setItem('crowbar', 1);
+                    localStorage.setItem('lockerLock', 0);
                     break;
 
             }
-            if (parseInt(localStorage.getItem('paperclip')) == 0 && parseInt(localStorage.getItem('lockerLick')) == 1) {
-                switch(seq19) {
-                    case 5:
-                        document.getElementById("chatboxinner").innerText = "It's locked by an old school lock, I could probably pick this with something."; 
-                        break; 
-                    case 6:
-                        document.getElementById("chatbox").style.display = "none";
-                        document.getElementById("locker1").style.display = "block"; 
-                        document.getElementById("locker2").style.display = "block"; 
-                        document.getElementById("locker3").style.display = "block"; 
-                        break;
-                }
-            } else {
-                switch(seq19) {
-                    case 5:
-                        document.getElementById("chatboxinner").innerText = "It still reeks of blood in this locker."; 
-                        break; 
-                    case 6:
-                        document.getElementById("chatbox").style.display = "none";
-                        document.getElementById("locker1").style.display = "block"; 
-                        document.getElementById("locker2").style.display = "block"; 
-                        document.getElementById("locker3").style.display = "block"; 
-                        break;
+        }
+        else if (parseInt(localStorage.getItem('paperclip')) == 0 && parseInt(localStorage.getItem('lockerLock')) == 1) {
+            switch(seq19) {
+                case 5:
+                    document.getElementById("chatboxinner").innerText = "It's locked by an old school lock, I could probably pick this with something."; 
+                    break; 
+                case 6:
+                    document.getElementById("chatbox").style.display = "none";
+                    document.getElementById("locker1").style.display = "block"; 
+                    document.getElementById("locker2").style.display = "block"; 
+                    document.getElementById("locker3").style.display = "block"; 
+                    break;
+            }
+        } else {
+            switch(seq19) {
+                case 5:
+                    document.getElementById("chatboxinner").innerText = "It still reeks of blood in this locker."; 
+                    break; 
+                case 6:
+                    document.getElementById("chatbox").style.display = "none";
+                    document.getElementById("locker1").style.display = "block"; 
+                    document.getElementById("locker2").style.display = "block"; 
+                    document.getElementById("locker3").style.display = "block"; 
+                    break;
                 }
             }
+        
+    }
+}
+
+
+
+// Extra Sequences - - - - - - - - - 
+seq20 = 0;
+function seq20Start() {
+    seq20 = 0;
+    active = 20;
+    seq20++
+    switch(seq20) {
+        case 0:
+            break;
+        case 1:
+            document.getElementById("chatbox").style.display = "block"; 
+            document.getElementById("bin").style.display = "none"; 
+            document.getElementById("toLobby").style.display = "none"; 
+            document.getElementById("bulletin").style.display = "none";
+            document.getElementById("classroom1").style.display = "none";
+            document.getElementById("chatboxinner").style.fontStyle = "normal";
+            document.getElementById("chatboxinner").innerText = "I can't leave, I need to finish this... My sanity depends on it."; 
+            break;       
+    }
+}
+
+function seq20Click() {
+    if (active == 20) {
+        seq20++
+        switch(seq20) {
+            case 2:
+                document.getElementById("chatbox").style.display = "none"; 
+                document.getElementById("bin").style.display = "block"; 
+                document.getElementById("toLobby").style.display = "block"; 
+                document.getElementById("bulletin").style.display = "block";
+                document.getElementById("classroom1").style.display = "block"; 
+                break;  
         }
     }
 }
+
 
 // Utility Functions
 function seqReset() {
@@ -1016,6 +1086,7 @@ function mainClick() {
     seq17Click();
     seq18Click();
     seq19Click();
+    seq20Click();
 }
 
 // Yes No Prompt Functions - - - - - - - - 

@@ -121,6 +121,21 @@ body {
     cursor: pointer;
 }
 
+#back {
+    padding: 0.7% 0.5% 0.5% 0.5%;
+    color: rgb(105, 0, 0);
+    font-family: 'Special Elite', monospace;
+    font-size: 100%;
+    font-weight: bold;
+    margin: 10px 0px 0px 10px;
+}
+
+#back:hover {
+    background-color: rgb(255, 0, 0);
+    border-color: red;
+    cursor: pointer;
+}
+
 #chatbox {
     display: none;
     background-color: rgb(27, 27, 27);
@@ -189,8 +204,20 @@ body {
 #paperclip {
     display: none;
     position: absolute;
-    right: 30px;
+    right: 20px;
     top: 20px;
+    width: 40px;
+    height: 40px;
+    background-color: rgba(145, 0, 0, 0.501);
+    border-radius: 5px;
+    box-shadow: 0 0 5px 5px rgba(145, 0, 0, 0.501);
+}
+
+#crowbar {
+    display: none;
+    position: absolute;
+    right: 20px;
+    top: 80px;
     width: 40px;
     height: 40px;
     background-color: rgba(145, 0, 0, 0.501);
@@ -353,7 +380,7 @@ body {
 
 #audiBoard {
     z-index: 2;
-    display: block;
+    display: none;
     position: absolute;
     top: 480px;
     left: 790px;
@@ -364,7 +391,7 @@ body {
 
 #audiBoard2 {
     z-index: 2;
-    display: block;
+    display: none;
     position: absolute;
     top: 550px;
     left: 800px;
