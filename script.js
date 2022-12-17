@@ -409,7 +409,6 @@ function seq7Click() {
                         break;
                     case 3:
                         document.getElementById("chatboxinner").innerText = "*You insert the paper clip into the lock and after a couple of minutes...*"; 
-                        document.getElementById("paperclip").style.display = "none";
                         break;
                     case 4:
                         document.getElementById("chatboxinner").innerText = "I did it! Should I head in?";
@@ -771,6 +770,140 @@ function seq12Click() {
     }
 }
 
+
+// Sequence 13
+seq13 = 0;
+
+function seq13Start() {
+    active = 13;
+    seq13 = 0;
+    seq13++
+    document.getElementById("backstage").style.display = "none"; 
+    document.getElementById("exit1").style.display = "none"; 
+    document.getElementById("exit2").style.display = "none";
+    switch(seq13) {
+        case 0:
+            break;
+        case 1:
+            document.getElementById("chatbox").style.display = "block";
+            document.getElementById("chatboxinner").style.fontStyle = "normal";
+            document.getElementById("chatboxinner").innerText = "It's the auditorium stage, covered in darkness..."; 
+            break;   
+    }
+}
+
+function seq13Click() {
+    if (active == 13) {
+        seq13++
+        switch(seq13) {
+            case 2:
+                document.getElementById("chatboxinner").style.fontStyle = "normal";
+                document.getElementById("chatboxinner").innerText = "Behind those curtains would be the backstage..."; 
+                break; 
+            case 3:
+                document.getElementById("chatboxinner").style.fontStyle = "normal";
+                document.getElementById("chatboxinner").innerText = "For some reason, I shudder just thinking what could be back there.."; 
+                break;
+            case 4:
+                document.getElementById("chatboxinner").style.fontStyle = "normal";
+                document.getElementById("chatboxinner").innerText = "Should I head in?"; 
+                document.getElementById("yes").style.display = "block";
+                document.getElementById("no").style.display = "block"; 
+                break; 
+            }
+    }
+}
+
+
+// Sequence 14
+seq14 = 0;
+
+function seq14Start() {
+    active = 14;
+    seq14 = 0;
+    seq14++
+    document.getElementById("backstage").style.display = "none"; 
+    document.getElementById("exit1").style.display = "none"; 
+    document.getElementById("exit2").style.display = "none";
+    switch(seq14) {
+        case 0:
+            break;
+        case 1:
+            document.getElementById("chatbox").style.display = "block";
+            document.getElementById("chatboxinner").style.fontStyle = "normal";
+            document.getElementById("chatboxinner").innerText = "It's an emergency exit..."; 
+            break;   
+    }
+}
+
+function seq14Click() {
+    if (active == 14) {
+        seq14++
+        switch(seq14) {
+            case 2:
+                document.getElementById("chatboxinner").style.fontStyle = "Italic";
+                document.getElementById("chatboxinner").innerText = "*You push against the doors... they don't budge*"; 
+                break; 
+            case 3:
+                document.getElementById("chatboxinner").style.fontStyle = "normal";
+                document.getElementById("chatboxinner").innerText = "It seems the doors are boarded up from the other side."; 
+                break; 
+            case 4:
+                document.getElementById("chatbox").style.display = "none"; 
+                document.getElementById("backstage").style.display = "block"; 
+                document.getElementById("exit1").style.display = "block"; 
+                document.getElementById("exit2").style.display = "block"; 
+                break; 
+            }
+    }
+}
+
+
+// Sequence 15
+seq15 = 0;
+
+function seq15Start() {
+    active = 15;
+    seq15 = 0;
+    seq15++
+    document.getElementById("backstage").style.display = "none"; 
+    document.getElementById("exit1").style.display = "none"; 
+    document.getElementById("exit2").style.display = "none";
+    switch(seq15) {
+        case 0:
+            break;
+        case 1:
+            document.getElementById("chatbox").style.display = "block";
+            document.getElementById("chatboxinner").style.fontStyle = "normal";
+            document.getElementById("chatboxinner").innerText = "It's an emergency exit..."; 
+            break;   
+    }
+}
+
+function seq15Click() {
+    if (active == 15) {
+        seq15++
+        switch(seq15) {
+            case 2:
+                document.getElementById("chatboxinner").style.fontStyle = "Italic";
+                document.getElementById("chatboxinner").innerText = "*You push against the doors... they don't budge*"; 
+                break; 
+            case 3:
+                document.getElementById("chatboxinner").style.fontStyle = "normal";
+                document.getElementById("chatboxinner").innerText = "It seems the doors are boarded up from the other side."; 
+                break; 
+            case 4:
+                document.getElementById("chatbox").style.display = "none"; 
+                document.getElementById("backstage").style.display = "block"; 
+                document.getElementById("exit1").style.display = "block"; 
+                document.getElementById("exit2").style.display = "block"; 
+                break; 
+            }
+    }
+}
+
+
+
 // Sequence 16
 seq16 = 0;
 
@@ -1082,6 +1215,9 @@ function mainClick() {
     seq10Click();
     seq11Click();
     seq12Click();
+    seq13Click();
+    seq14Click();
+    seq15Click();
     seq16Click();
     seq17Click();
     seq18Click();
@@ -1124,6 +1260,12 @@ function yes2() {
             document.getElementById("chatbox").style.display = "none";
             localStorage.setItem('stairLock', 0)
             window.location.href="win.html";
+            break;
+        case 13:
+            document.getElementById("yes").style.display = "none";
+            document.getElementById("no").style.display = "none";
+            document.getElementById("chatbox").style.display = "none";
+            window.location.href="backstage.html";
             break;
     }
 }
@@ -1175,5 +1317,13 @@ function no2() {
             document.getElementById("staircase").style.display = "block"; 
             localStorage.setItem('stairLock', 0)
             break;
+            case 13:
+                document.getElementById("yes").style.display = "none";
+                document.getElementById("no").style.display = "none";
+                document.getElementById("chatbox").style.display = "none";
+                document.getElementById("backstage").style.display = "block"; 
+                document.getElementById("exit1").style.display = "block"; 
+                document.getElementById("exit2").style.display = "block";
+                break;
     }
 }
