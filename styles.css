@@ -53,7 +53,7 @@ body {
 }
 
 #menu {
-    background-image: url('/img/school.jpg');
+    background-image: url('img/school.jpg');
     background-size: cover;
     background-repeat: no-repeat;
 }
@@ -99,7 +99,7 @@ body {
 /* Game Pages CSS - - - - - - - -*/
 #hud {
     position: fixed;
-    z-index: 4;
+    z-index: 2;
     width: 100%;
     height: 100%;
     left: 0;
@@ -228,14 +228,14 @@ body {
 
 /* Start Page */
 #start {
-    background-image: url('/img/start.jpg');
+    background-image: url('img/start.jpg');
     background-size: cover;
     background-repeat: no-repeat;
 }
 
 /* Entrance Page */
 #entrance {
-    background-image: url('/img/entrance.jpg');
+    background-image: url('img/entrance.jpg');
     border: 5px solid rgb(39, 0, 0);
     background-size: contain;
     background-repeat: no-repeat;
@@ -259,7 +259,7 @@ body {
 
 /* Hall Page */
 #hall {
-    background-image: url('/img/hall.jpg');
+    background-image: url('img/hall.jpg');
     border: 5px solid rgb(39, 0, 0);
     background-size: contain;
     background-repeat: no-repeat;
@@ -327,7 +327,7 @@ body {
 /* Lobby Page */
 
 #lobby {
-    background-image: url('/img/lobby.jpg');
+    background-image: url('img/lobby.jpg');
     border: 5px solid rgb(39, 0, 0);
     background-size: contain;
     background-repeat: no-repeat;
@@ -481,7 +481,7 @@ body {
 
 /* Classroom CSS */
 #classroom {
-    background-image: url('/img/classroom.jpg');
+    background-image: url('img/classroom.jpg');
     border: 5px solid rgb(39, 0, 0);
     background-size: cover;
     background-repeat: no-repeat;
@@ -537,7 +537,7 @@ body {
 
 /* Backstage CSS */
 #stage {
-    background-image: url('/img/backstage.jpg');
+    background-image: url('img/backstage.jpg');
     border: 5px solid rgb(39, 0, 0);
     background-size: cover;
     background-repeat: no-repeat;

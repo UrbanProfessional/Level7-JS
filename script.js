@@ -109,7 +109,7 @@ function seq1Click() {
             document.getElementById("chatboxinner").innerText = "Seems some lights are on inside, I've heard it's because of some legal stuff...";      
             break;  
         case 2:
-            document.getElementById("chatboxinner").innerText = "There are rumors about a bunch of crackheads and lowlifes residing here now, seems fairly believable...";      
+            document.getElementById("chatboxinner").innerText = "There are rumors about many squatters and lowlifes residing in the building now, seems fairly believable...";      
             break;  
         case 3:
             document.getElementById("chatboxinner").innerText = "So I brought a handgun... (Click the 'Suicide' Button to shoot yourself and restart)";      
@@ -1316,7 +1316,7 @@ function seq23Start() {
 function seq23Click() {
     if (active == 23) {
         seq23++
-        switch(seq16) {
+        switch(seq23) {
             case 2:
                 document.getElementById("chatboxinner").style.fontStyle = "normal";
                 document.getElementById("chatboxinner").innerText = "I am closer to finishing what I need to..."; 
@@ -1326,10 +1326,6 @@ function seq23Click() {
                 break; 
             case 4:
                 document.getElementById("chatbox").style.display = "none"; 
-                document.getElementById("locker1").style.display = "block"; 
-                document.getElementById("locker2").style.display = "block"; 
-                document.getElementById("locker3").style.display = "block";
-                localStorage.setItem('class1First', 0); 
                 break; 
             }
     }
