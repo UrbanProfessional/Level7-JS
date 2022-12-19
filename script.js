@@ -1155,7 +1155,185 @@ function seq19Click() {
     }
 }
 
+// Sequence 21
+seq21 = 0;
 
+function seq21Start() {
+    active = 21;
+    seq21 = 0;
+    seq21++
+    itemLoad();
+    switch(seq21) {
+        case 0:
+            break;
+        case 1:
+            document.getElementById("chatbox").style.display = "block";
+            document.getElementById("chatboxinner").innerText = "I've been stumbling through darkness for several minutes now..."; 
+            break;   
+    }
+}
+
+function seq21Click() {
+    if (active == 21) {
+        seq21++
+        switch(seq21) {
+            case 2:
+                document.getElementById("chatboxinner").innerText = "..."; 
+                break; 
+            case 3:
+                document.getElementById("chatboxinner").innerText = "What the hell am I doing..."; 
+                break; 
+            case 3:
+                document.getElementById("chatboxinner").innerText = "..."; 
+                break;
+            case 4:
+                document.getElementById("chatboxinner").innerText = "I don't see or hear a damn thing..."; 
+                break; 
+            case 5:
+                document.getElementById("chatboxinner").innerText = "I..."; 
+                break;
+            case 6:
+                document.getElementById("chatboxinner").style.fontStyle = "Italic";
+                document.getElementById("chatboxinner").innerText = "*You hear a distant clock begin to tick...*"; 
+                break; 
+            case 7:
+                document.getElementById("chatboxinner").style.fontStyle = "normal";
+                document.getElementById("chatboxinner").innerText = "..."; 
+                break; 
+            case 8:
+                document.getElementById("chatboxinner").innerText = "Am I alive?..."; 
+                break; 
+            case 9:
+                document.getElementById("chatboxinner").style.fontStyle = "Italic";
+                document.getElementById("chatboxinner").innerText = "*You put your hand on your chest...*"; 
+                break; 
+            case 10:
+                document.getElementById("chatboxinner").style.fontStyle = "normal";
+                document.getElementById("chatboxinner").innerText = "I feel it...beating..."; 
+                break;
+            case 11:
+                document.getElementById("chatboxinner").innerText = "Every tick of the clock, I feel my heart beat..."; 
+                break;   
+            case 12:
+                document.getElementById("chatboxinner").innerText = "Every other tick I blink..."; 
+                break; 
+            case 13:
+                document.getElementById("chatboxinner").innerText = "Every 3 ticks, I breath..."; 
+                break; 
+            case 14:
+                document.getElementById("chatboxinner").innerText = "..."; 
+                break; 
+            case 15:
+                document.getElementById("chatboxinner").innerText = "Every tick I inch closer to it..."; 
+                break; 
+            case 16:
+                document.getElementById("chatboxinner").innerText = "..."; 
+                break; 
+            case 17:
+                document.getElementById("chatboxinner").innerText = "Wh- What if I don't finish it..."; 
+                break; 
+            case 18:
+                document.getElementById("chatboxinner").innerText = "..."; 
+                break;
+            case 19:
+                document.getElementById("chatboxinner").style.fontStyle = "Italic";
+                document.getElementById("chatboxinner").innerText = "*You take out your handgun...*"; 
+                break; 
+            case 20:
+                document.getElementById("chatboxinner").innerText = "*You feel its cold metal, its complex form, its power...*"; 
+                break; 
+            case 21:
+                document.getElementById("chatboxinner").innerText = "..."; 
+                break;
+            case 22:
+                document.getElementById("chatboxinner").innerText = "*You point the barrel directly to your forehead...*"; 
+                break;
+            case 23:
+                document.getElementById("chatboxinner").style.fontStyle = "normal";
+                document.getElementById("chatboxinner").innerText = "The more I hold down this trigger, the quieter the ticking gets..."; 
+                break;
+            case 24:
+                document.getElementById("chatboxinner").innerText = "The ticking... do I end it?"; 
+                document.getElementById("yes").style.display = "block";
+                document.getElementById("no").style.display = "block"; 
+                break;
+            }
+    }
+}
+
+// Sequence 22
+seq22 = 0;
+
+function seq22Start() {
+    active = 22;
+    seq22 = 0;
+    seq22++
+    switch(seq22) {
+        case 0:
+            break;
+        case 1:
+            document.getElementById("chatbox").style.display = "block";
+            document.getElementById("chatboxinner").innerText = "*You fire the gun towards the darkness...*"; 
+            break;   
+    }
+}
+
+function seq22Click() {
+    if (active == 22) {
+        seq22++
+        switch(seq22) {
+            case 2:
+                document.getElementById("chatboxinner").innerText = "*For the briefest of a tick, the flash of the gun lights the area...*"; 
+                break; 
+            case 3:
+                document.getElementById("chatboxinner").innerText = "I am somewhere..."; 
+                break; 
+            case 4:
+                document.getElementById("darkness2").style.display = "none"; 
+                document.getElementById("chatbox").style.display = "none";
+                break;
+            }
+    }
+}
+
+// Sequence 23
+function seq23Start() {
+    active = 23;
+    seq23 = 0;
+    seq23++
+    document.getElementById("darkness").style.display = "none"; 
+    switch(seq23) {
+        case 0:
+            break;
+        case 1:
+            document.getElementById("chatbox").style.display = "block";
+            document.getElementById("chatboxinner").style.fontStyle = "normal";
+            document.getElementById("chatboxinner").innerText = "This feeling..."; 
+            break;   
+    }
+}
+
+function seq23Click() {
+    if (active == 23) {
+        seq23++
+        switch(seq16) {
+            case 2:
+                document.getElementById("chatboxinner").style.fontStyle = "normal";
+                document.getElementById("chatboxinner").innerText = "I am closer to finishing what I need to..."; 
+                break; 
+            case 3:
+                document.getElementById("chatboxinner").innerText = "Something I need is in this room..."; 
+                break; 
+            case 4:
+                document.getElementById("chatbox").style.display = "none"; 
+                document.getElementById("locker1").style.display = "block"; 
+                document.getElementById("locker2").style.display = "block"; 
+                document.getElementById("locker3").style.display = "block";
+                localStorage.setItem('class1First', 0); 
+                break; 
+            }
+    }
+}
 
 // Extra Sequences - - - - - - - - - 
 seq20 = 0;
@@ -1193,6 +1371,11 @@ function seq20Click() {
     }
 }
 
+function seq21Flash() {
+    document.getElementById("darkness").style.display = "block";
+    document.getElementById("darkness2").style.display = "block";
+}
+
 
 // Utility Functions
 function seqReset() {
@@ -1223,6 +1406,9 @@ function mainClick() {
     seq18Click();
     seq19Click();
     seq20Click();
+    seq21Click();
+    seq22Click();
+    seq23Click();
 }
 
 // Yes No Prompt Functions - - - - - - - - 
@@ -1253,6 +1439,7 @@ function yes2() {
             document.getElementById("no").style.display = "none";
             document.getElementById("chatbox").style.display = "none";
             window.location.href="auditorium.html";
+            localStorage.setItem('audiBoarded', 0)
             break;
         case 11:
             document.getElementById("yes").style.display = "none";
@@ -1266,6 +1453,13 @@ function yes2() {
             document.getElementById("no").style.display = "none";
             document.getElementById("chatbox").style.display = "none";
             window.location.href="backstage.html";
+            break;
+        case 21:
+            document.getElementById("yes").style.display = "none";
+            document.getElementById("no").style.display = "none";
+            document.getElementById("chatbox").style.display = "none";
+            window.location.href="over.html";
+            document.getElementById("oText").innerText = "The clock ticks as your corpse rots away.";
             break;
     }
 }
@@ -1317,13 +1511,22 @@ function no2() {
             document.getElementById("staircase").style.display = "block"; 
             localStorage.setItem('stairLock', 0)
             break;
-            case 13:
-                document.getElementById("yes").style.display = "none";
-                document.getElementById("no").style.display = "none";
-                document.getElementById("chatbox").style.display = "none";
-                document.getElementById("backstage").style.display = "block"; 
-                document.getElementById("exit1").style.display = "block"; 
-                document.getElementById("exit2").style.display = "block";
-                break;
+        case 13:
+            document.getElementById("yes").style.display = "none";
+            document.getElementById("no").style.display = "none";
+            document.getElementById("chatbox").style.display = "none";
+            document.getElementById("backstage").style.display = "block"; 
+            document.getElementById("exit1").style.display = "block"; 
+            document.getElementById("exit2").style.display = "block";
+            break;
+        case 21:
+            document.getElementById("yes").style.display = "none";
+            document.getElementById("no").style.display = "none";
+            document.getElementById("chatbox").style.display = "none";
+            document.getElementById("darkness").style.display = "none";
+            document.getElementById("darkness2").style.display = "none";
+            setTimeout(seq21Flash, 10);
+            setTimeout(seq22Start, 3000);
+            break;
     }
 }
