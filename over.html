@@ -8,9 +8,11 @@
     <link rel="stylesheet" href="styles.css">
     <script src="script.js"></script>
 </head>
-<body id="over">
+<body onload="over()" id="over">
     <h1 id="oTitle">GAME OVER</h1>
     <p id="oText">You died.</p>
     <p onclick="location.href='index.html'" id="oButton">Restart</p>
+    <!-- Audio -->
+    <audio src="audio/pistol.mp3" id="gunshot"></audio>
 </body>
 </html>

@@ -10,7 +10,7 @@
 </head>
 <body onload="setTimeout(seq21Start, 5000)">
     <div id="stage">
-        <img onclick="seq23Start()" class="interact" id="light" src="img/off.png" alt="Null">
+        <img onclick="seq23LightStart()" class="interact" id="light" src="img/off.png" alt="Null">
         <div onclick="seq24Start()" class="interact" id="blood"></div>
     </div>
     <div id="hud">
@@ -24,7 +24,12 @@
         <p onclick="no2()" id="no">no</p></P>
         <p id="click">Click ↓</p>
     </div>
-    <div id="darkness"></div>
+    <div id="darkness">
+        <img src="img/dave.jpg" id="dave" alt="Null">
+    </div>
     <div id="darkness2"></div>
+    <!-- Audio -->
+    <audio loop src="audio/clock.mp3" id="clock"></audio>
+    <audio src="audio/pistol.mp3" id="gunshot"></audio>
 </body>
 </html>

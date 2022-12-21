@@ -8,6 +8,9 @@ function rmWarn() {
 function gameOver() {
     window.location.href="over.html";
 }
+function over() {
+    document.getElementById("gunshot").play();
+}
 
 // Game Start Init
 function init() {
@@ -259,6 +262,7 @@ function seq4Click() {
             document.getElementById("chatboxinner").innerText = "*You put the papers back in the bin and take the paperclip*";
             localStorage.setItem('paperclip', 1); 
             localStorage.setItem('clipfound', 1); 
+            document.getElementById('equipPaperclip').play();
             document.getElementById("paperclip").style.display = "block";
             break;
         case 7:
@@ -723,6 +727,7 @@ function seq12Start() {
     seq12 = 0;
     seq12++
     itemLoad();
+    document.getElementById('silence').play();
     document.getElementById("backstage").style.display = "none"; 
     document.getElementById("exit1").style.display = "none"; 
     document.getElementById("exit2").style.display = "none";
@@ -1107,6 +1112,7 @@ function seq19Click() {
                 case 9:
                     document.getElementById("chatboxinner").style.fontStyle = "normal";
                     document.getElementById("chatboxinner").innerText = "There's a crowbar in here! This could definitely come in handy..."; 
+                    document.getElementById('equipCrowbar').play();
                     document.getElementById("crowbar").style.display = "block";
                     break;
                 case 10:
@@ -1194,7 +1200,9 @@ function seq21Click() {
                 break;
             case 6:
                 document.getElementById("chatboxinner").style.fontStyle = "Italic";
-                document.getElementById("chatboxinner").innerText = "*You hear a distant clock begin to tick...*"; 
+                document.getElementById("chatboxinner").innerText = "*You hear a harsh clock begin to tick...*"; 
+                document.getElementById("clock").volume = 0.5;
+                document.getElementById("clock").play();
                 break; 
             case 7:
                 document.getElementById("chatboxinner").style.fontStyle = "normal";
@@ -1297,11 +1305,17 @@ function seq22Click() {
 }
 
 // Sequence 23
+function seq23LightStart() {
+    document.getElementById("darkness").style.display = "none"; 
+    document.getElementById("light").src = "img/on.png";
+    document.getElementById("light").style.pointerEvents = "none";
+    setTimeout(seq23Start, 1000);
+}
+
 function seq23Start() {
     active = 23;
     seq23 = 0;
     seq23++
-    document.getElementById("darkness").style.display = "none"; 
     switch(seq23) {
         case 0:
             break;
@@ -1325,6 +1339,120 @@ function seq23Click() {
                 document.getElementById("chatboxinner").innerText = "Something I need is in this room..."; 
                 break; 
             case 4:
+                document.getElementById("chatbox").style.display = "none"; 
+                document.getElementById("blood").style.display = "block";
+                break; 
+            }
+    }
+}
+
+function seq24Start() {
+    active = 24;
+    seq24 = 0;
+    seq24++
+    document.getElementById("blood").style.display = "none";
+    switch(seq24) {
+        case 0:
+            break;
+        case 1:
+            document.getElementById("chatbox").style.display = "block";
+            document.getElementById("chatboxinner").style.fontStyle = "normal";
+            document.getElementById("chatboxinner").innerText = "What the hell..."; 
+            break;   
+    }
+}
+
+function seq24Click() {
+    if (active == 24) {
+        seq24++
+        switch(seq24) {
+            case 2:
+                document.getElementById("chatboxinner").style.fontStyle = "normal";
+                document.getElementById("chatboxinner").innerText = "This is a whole lot of blood, and it's fresh..."; 
+                break; 
+            case 3:
+                document.getElementById("chatboxinner").innerText = "..."; 
+                break; 
+            case 4:
+                document.getElementById("chatboxinner").innerText = "I don't want to think about it..."; 
+                break; 
+            case 5:
+                document.getElementById("chatbox").style.display = "none"; 
+                document.getElementById("blood").style.display = "block";
+                setTimeout(seq25Start, 10000);
+                break; 
+            }
+    }
+}
+
+// Final Minigame Sequences - - - - - - - - - - - - 
+
+// Sequence 25
+function seq25Start() {
+    active = 25;
+    seq25 = 0;
+    seq25++
+    document.getElementById("blood").style.display = "none";
+    document.getElementById("darkness").style.display = "block";
+    document.getElementById("dave").style.display = "block";
+    document.getElementById("clock").pause();
+    setTimeout(seq25Start2, 2000);
+}
+function seq25Start2() {
+    active = 25;
+    seq25 = 0;
+    seq25++
+    switch(seq25) {
+        case 0:
+            break;
+        case 1:
+            document.getElementById("chatbox").style.display = "block";
+            document.getElementById("chatboxinner").style.fontStyle = "normal";
+            document.getElementById("chatboxinner").innerText = "..."; 
+            break;   
+    }   
+}
+
+function seq25Click() {
+    if (active == 25) {
+        seq25++
+        switch(seq25) {
+            case 2:
+                document.getElementById("chatboxinner").style.color = 'rgb(225, 0, 0)';
+                document.getElementById("chatboxinner").style.fontStyle = "Italic";
+                document.getElementById("chatboxinner").innerText = "Professor is that you?"; 
+                break; 
+            case 3:
+                document.getElementById("chatboxinner").innerText = "Professor I hate the dark..."; 
+                break; 
+            case 4:
+                document.getElementById("chatboxinner").innerText = "When I see dark you ███████████████████ me..."; 
+                break; 
+            case 5:
+                document.getElementById("chatboxinner").innerText = "You taught me to be still to make it easier..."; 
+                break; 
+            case 6:
+                document.getElementById("chatboxinner").innerText = "Professor I love the light..."; 
+                break; 
+            case 7:
+                document.getElementById("chatboxinner").innerText = "When I see light you give me new friends to play with..."; 
+                break; 
+            case 8:
+                document.getElementById("chatboxinner").innerText = "I give my friends love and they give me their ████ Professor!"; 
+                break; 
+            case 9:
+                document.getElementById("chatboxinner").innerText = "One day I will finish my assignment professor!"; 
+                break; 
+            case 10:
+                document.getElementById("chatboxinner").innerText = "You burned my ████ away, so I could make a new one!"; 
+                break; 
+            case 11:
+                document.getElementById("chatboxinner").innerText = "Professor do I get 100? PROFESSOR...P R O F E S S O R..."; 
+                break;
+            case 12:
+                document.getElementById("chatboxinner").innerText = "Have I been a good student?"; 
+                break;  
+            case 13:
                 document.getElementById("chatbox").style.display = "none"; 
                 break; 
             }
@@ -1368,6 +1496,11 @@ function seq20Click() {
 }
 
 function seq21Flash() {
+    document.getElementById("darkness").style.display = "none";
+    document.getElementById("darkness2").style.display = "none";
+}
+
+function seq21Unflash() {
     document.getElementById("darkness").style.display = "block";
     document.getElementById("darkness2").style.display = "block";
 }
@@ -1405,6 +1538,8 @@ function mainClick() {
     seq21Click();
     seq22Click();
     seq23Click();
+    seq24Click();
+    seq25Click();
 }
 
 // Yes No Prompt Functions - - - - - - - - 
@@ -1516,13 +1651,14 @@ function no2() {
             document.getElementById("exit2").style.display = "block";
             break;
         case 21:
+            document.getElementById("gunshot").play();
             document.getElementById("yes").style.display = "none";
             document.getElementById("no").style.display = "none";
             document.getElementById("chatbox").style.display = "none";
-            document.getElementById("darkness").style.display = "none";
-            document.getElementById("darkness2").style.display = "none";
-            setTimeout(seq21Flash, 10);
+            setTimeout(seq21Flash, 500);
+            setTimeout(seq21Unflash, 510);
             setTimeout(seq22Start, 3000);
+            document.getElementById("clock").volume = 0.1;
             break;
     }
 }

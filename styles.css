@@ -98,6 +98,7 @@ body {
 
 /* Game Pages CSS - - - - - - - -*/
 #hud {
+    pointer-events: none;
     position: fixed;
     z-index: 2;
     width: 100%;
@@ -107,6 +108,7 @@ body {
 }
 
 #suicide {
+    pointer-events: all;
     padding: 0.7% 0.5% 0.5% 0.5%;
     color: rgb(105, 0, 0);
     font-family: 'Special Elite', monospace;
@@ -122,6 +124,7 @@ body {
 }
 
 #back {
+    pointer-events: all;
     padding: 0.7% 0.5% 0.5% 0.5%;
     color: rgb(105, 0, 0);
     font-family: 'Special Elite', monospace;
@@ -137,6 +140,7 @@ body {
 }
 
 #chatbox {
+    pointer-events: all;
     display: none;
     background-color: rgb(27, 27, 27);
     border-radius: 30px;
@@ -547,7 +551,7 @@ body {
 }
 
 #light {
-    z-index: 5;
+    z-index: 2;
     display: block;
     position: absolute;
     margin-top: 480px;
@@ -580,6 +584,31 @@ body {
     position: fixed;
     z-index: 10;
 }
+
+#blood {
+    z-index: 3;
+    display: none;
+    position: absolute;
+    top: 640px;
+    left: 390px;
+    width: 150px;
+    height: 60px;
+    border-radius: 200px;
+}
+#blood:hover {
+    background-color: rgba(177, 2, 2, 0.301);
+    box-shadow: 0 0 20px 20px rgb(177, 2, 2, 0.301);
+}
+
+#dave {
+    display: none;
+    width: 30px;
+    height: 140px;
+    position: fixed;
+    top: 225px;
+    left: 540px;
+}
+
 
 /* Game Over CSS - - - - - - - - - - */
 #over {
