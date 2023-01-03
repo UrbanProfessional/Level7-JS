@@ -601,12 +601,81 @@ body {
 }
 
 #dave {
+    z-index: 2;
     display: none;
     width: 30px;
     height: 140px;
-    position: fixed;
-    top: 225px;
+    position: absolute;
+    top: 460px;
     left: 540px;
+}
+#dave.stage2 {
+    z-index: 2;
+    display: none;
+    width: 180px;
+    height: 90px;
+    position: absolute;
+    top: 600px;
+    left: 550px;
+}
+/* #dave {
+    z-index: 2;
+    display: none;
+    width: 30px;
+    height: 140px;
+    position: absolute;
+    top: 450px;
+    left: 540px;
+} */
+
+#countdown {
+    display: none;
+    color: rgb(212, 209, 206);
+    font-family: 'Special Elite', monospace;
+    font-size: 300%;
+    position: fixed;
+    top: 20px;
+    margin-left: 40%;
+    margin-right: 50%;
+}
+
+#monster {
+    width: 500px;
+    height: 400px;
+}
+#trim {
+    overflow: hidden;
+    display: none;
+    z-index: 0;
+    position: absolute;
+    top: 450px;
+    left: 180px;
+    width: 850px;
+    height: 520px;
+}
+
+#monster.stage2 {
+    width: 850px;
+    height: 680px;
+}
+
+#trim.stage2 {
+    top: 450px;
+    left: 80px;
+    width: 850px;
+    height: 520px;
+}
+
+#monster.stage3 {
+    width: 3000px;
+    height: 2400px;
+}
+
+#trim.stage3 {
+    top: 180px;
+    left: -1600px;
+    width: 2500px;
+    height: 845px;
 }
 
 

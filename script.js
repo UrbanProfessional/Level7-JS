@@ -1169,6 +1169,7 @@ function seq21Start() {
     seq21 = 0;
     seq21++
     itemLoad();
+    document.getElementById("static").style.display = "none";
     switch(seq21) {
         case 0:
             break;
@@ -1299,23 +1300,20 @@ function seq22Click() {
             case 4:
                 document.getElementById("darkness2").style.display = "none"; 
                 document.getElementById("chatbox").style.display = "none";
+                light1 = 1;
                 break;
             }
     }
 }
 
 // Sequence 23
-function seq23LightStart() {
-    document.getElementById("darkness").style.display = "none"; 
-    document.getElementById("light").src = "img/on.png";
-    document.getElementById("light").style.pointerEvents = "none";
-    setTimeout(seq23Start, 1000);
-}
 
 function seq23Start() {
     active = 23;
     seq23 = 0;
     seq23++
+    light1 = 0;
+    light2 = 1;
     switch(seq23) {
         case 0:
             break;
@@ -1396,7 +1394,8 @@ function seq25Start() {
     document.getElementById("darkness").style.display = "block";
     document.getElementById("dave").style.display = "block";
     document.getElementById("clock").pause();
-    setTimeout(seq25Start2, 2000);
+    document.getElementById("light").src = "img/off.png";
+    setTimeout(seq25Start2, 500);
 }
 function seq25Start2() {
     active = 25;
@@ -1408,7 +1407,7 @@ function seq25Start2() {
         case 1:
             document.getElementById("chatbox").style.display = "block";
             document.getElementById("chatboxinner").style.fontStyle = "normal";
-            document.getElementById("chatboxinner").innerText = "..."; 
+            document.getElementById("chatboxinner").innerText = "What the hell happened to the lights, the switch isn-"; 
             break;   
     }   
 }
@@ -1453,6 +1452,91 @@ function seq25Click() {
                 document.getElementById("chatboxinner").innerText = "Have I been a good student?"; 
                 break;  
             case 13:
+                document.getElementById("chatbox").style.display = "none";
+                setTimeout(seq26Start, 2000); 
+                break; 
+            }
+    }
+}
+
+
+// Sequence 26
+function seq26Start() {
+    active = 26;
+    seq26 = 0;
+    seq26++
+    switch(seq26) {
+        case 0:
+            break;
+        case 1:
+            document.getElementById("chatboxinner").style.color = 'rgb(225, 255, 255)';
+            document.getElementById("chatbox").style.display = "block";
+            document.getElementById("chatboxinner").style.fontStyle = "normal";
+            document.getElementById("chatboxinner").innerText = "..."; 
+            break;   
+    }   
+}
+
+function seq26Click() {
+    if (active == 26) {
+        seq26++
+        switch(seq26) {
+            case 2:
+                document.getElementById("chatboxinner").style.fontStyle = "normal";
+                document.getElementById("chatboxinner").innerText = "Now is not the time to panic..."; 
+                break; 
+            case 3:
+                document.getElementById("chatboxinner").innerText = "I need to find it, it's somewhere in this room..."; 
+                break; 
+            case 4:
+                timerInit();
+                document.getElementById("chatboxinner").innerText = "Before that thing gets a good look at me."; 
+                break; 
+            case 5:
+                document.getElementById("light").style.pointerEvents = "all";
+                document.getElementById("chatbox").style.display = "none"; 
+                break; 
+            }
+    }
+}
+
+// Sequence 27
+function seq27Start() {
+    active = 27;
+    seq27 = 0;
+    seq27++
+    switch(seq27) {
+        case 0:
+            break;
+        case 1:
+            document.getElementById("chatboxinner").style.color = 'rgb(225, 255, 255)';
+            document.getElementById("chatbox").style.display = "block";
+            document.getElementById("chatboxinner").style.fontStyle = "normal";
+            document.getElementById("chatboxinner").innerText = "..."; 
+            break;   
+    }   
+}
+
+function seq27Click() {
+    if (active == 27) {
+        seq27++
+        switch(seq27) {
+            case 2:
+                document.getElementById("chatboxinner").style.color = 'rgb(225, 0, 0)';
+                document.getElementById("chatboxinner").style.fontStyle = "normal";
+                document.getElementById("chatboxinner").innerText = "Professor..."; 
+                break; 
+            case 3:
+                document.getElementById("chatboxinner").innerText = "Please answer me..."; 
+                break; 
+            case 4:
+                document.getElementById("chatboxinner").innerText = "You know what my parents do to me when you give Z E R O..."; 
+                break; 
+            case 5:
+                document.getElementById("chatboxinner").innerText = "Professor?"; 
+                break; 
+            case 6:
+                document.getElementById("light").style.pointerEvents = "all";
                 document.getElementById("chatbox").style.display = "none"; 
                 break; 
             }
@@ -1540,7 +1624,82 @@ function mainClick() {
     seq23Click();
     seq24Click();
     seq25Click();
+    seq26Click();
+    seq27Click();
+    seq28Click();
 }
+
+// Timer
+function timerInit() {
+elapsedTime = 30000;
+document.getElementById("countdown").style.display = "block";
+document.getElementById("trim").style.display = "block";
+document.getElementById("blood").style.display = "none";
+document.getElementById("countdown").innerHTML = (elapsedTime / 1000).toFixed(3);
+}
+
+Stage2 = false;
+Stage3 = false;
+function startTimer() {
+    interval = setInterval(function() {
+        elapsedTime = elapsedTime - 11;
+        document.getElementById("countdown").innerHTML = (elapsedTime / 1000).toFixed(3);
+        if (elapsedTime <= 0) {
+            pauseTimer();
+            document.getElementById("countdown").innerHTML = '0.000';
+        } else if (elapsedTime <= 10000 && !Stage3) {
+            Stage3 = true;
+            pauseTimer();
+            document.getElementById("static").style.opacity = "0.6";
+            document.getElementById("countdown").innerHTML = '10.000';
+            document.getElementById("light").style.pointerEvents = "none";
+            document.getElementById("light").src = "img/off.png";
+            document.getElementById("monster").classList.add('stage3');
+            document.getElementById("trim").classList.add('stage3');
+            document.getElementById("darkness").style.display = "block"; 
+        } else if (elapsedTime <= 20000 && !Stage2) {
+            Stage2 = true;
+            pauseTimer();
+            document.getElementById("static").style.opacity = "0.3";
+            document.getElementById("countdown").innerHTML = '20.000';
+            document.getElementById("light").style.pointerEvents = "none";
+            document.getElementById("light").src = "img/off.png";
+            document.getElementById("dave").src = "img/dave2.jpeg";
+            document.getElementById("dave").style.display = "block";
+            document.getElementById("monster").classList.add('stage2');
+            document.getElementById("trim").classList.add('stage2');
+            document.getElementById("dave").classList.add('stage2');
+            document.getElementById("darkness").style.display = "block"; 
+            setTimeout(seq27Start, 2000);
+        }
+    }, 11);
+}
+
+function pauseTimer() {
+    clearInterval(interval);
+}
+
+// Light Switch Function
+function lightSwitch() {
+    if (document.getElementById("darkness").style.display == "block") {
+        document.getElementById("darkness").style.display = "none";
+        document.getElementById("dave").style.display = "none"; 
+        document.getElementById("light").src = "img/on.png";
+        if (light1) {
+            document.getElementById("light").style.pointerEvents = "none";
+            setTimeout(seq23Start, 1000);
+        } else if (light2) {
+            document.getElementById("static").style.display = "block";
+            startTimer();
+        }
+    } else if (document.getElementById("darkness").style.display == "none") {
+        document.getElementById("darkness").style.display = "block"; 
+        document.getElementById("dave").style.display = "block";
+        document.getElementById("light").src = "img/off.png";
+        pauseTimer();
+    }
+}
+
 
 // Yes No Prompt Functions - - - - - - - - 
 function yes2() {
