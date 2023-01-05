@@ -3,6 +3,27 @@ function rmWarn() {
     document.getElementById("warning").style.display = "none";
     document.getElementById("music").play();
 }
+// Main Menu Tutorial and Credits Window Logic
+function tutorial() {
+    document.getElementById("tutorial").style.display = "block";
+    document.getElementById("mB").style.pointerEvents = "none";
+    
+}
+function tutorialClose() {
+    document.getElementById("tutorial").style.display = "none";
+    document.getElementById("mB").style.pointerEvents = "all";
+}
+
+function credits() {
+    document.getElementById("credits").style.display = "block";
+    document.getElementById("mB").style.pointerEvents = "none";
+}
+function creditsClose() {
+    document.getElementById("credits").style.display = "none";
+    document.getElementById("mB").style.pointerEvents = "all";
+}
+
+
 
 // Game Over Function
 function gameOver() {
@@ -1376,7 +1397,6 @@ function seq24Click() {
                 break; 
             case 5:
                 document.getElementById("chatbox").style.display = "none"; 
-                document.getElementById("blood").style.display = "block";
                 setTimeout(seq25Start, 10000);
                 break; 
             }
@@ -1392,7 +1412,7 @@ function seq25Start() {
     seq25++
     document.getElementById("blood").style.display = "none";
     document.getElementById("darkness").style.display = "block";
-    document.getElementById("dave").style.display = "block";
+    document.getElementById("trim2").style.display = "block";
     document.getElementById("clock").pause();
     document.getElementById("light").src = "img/off.png";
     setTimeout(seq25Start2, 500);
@@ -1482,17 +1502,38 @@ function seq26Click() {
         seq26++
         switch(seq26) {
             case 2:
-                document.getElementById("chatboxinner").style.fontStyle = "normal";
-                document.getElementById("chatboxinner").innerText = "Now is not the time to panic..."; 
+                document.getElementById("chatboxinner").style.fontStyle = "Italic";
+                document.getElementById("chatboxinner").innerText = "*You pull out your gun and aim it at the faint eyes...*"; 
                 break; 
             case 3:
-                document.getElementById("chatboxinner").innerText = "I need to find it, it's somewhere in this room..."; 
+                document.getElementById("chatboxinner").style.fontStyle = "normal";
+                document.getElementById("chatboxinner").innerText = "..."; 
                 break; 
             case 4:
-                timerInit();
-                document.getElementById("chatboxinner").innerText = "Before that thing gets a good look at me."; 
+                document.getElementById("chatboxinner").innerText = "I can't pull this trigger..."; 
                 break; 
             case 5:
+                document.getElementById("chatboxinner").innerText = "For some reason it feels like I'm about to kill an old friend..."; 
+                break; 
+            case 6:
+                document.getElementById("chatboxinner").innerText = "Their voice...could it be..."; 
+                break;
+            case 7:
+                document.getElementById("chatboxinner").innerText = "..."; 
+                break;  
+            case 8:
+                document.getElementById("chatboxinner").innerText = "I think it would be smarter to not interact with that thing for now..."; 
+                break;
+            case 9:
+                document.getElementById("chatboxinner").innerText = "I need to find what I came here for..."; 
+                break;
+            case 10:
+                timerInit();
+                document.getElementById("chatboxinner").innerText = "I don't think I have a lot of time before things get ugly..."; 
+                break;   
+            case 11:
+                document.getElementById("keyF").style.display = "block";
+                document.getElementById("keyFV").style.display = "block";  
                 document.getElementById("light").style.pointerEvents = "all";
                 document.getElementById("chatbox").style.display = "none"; 
                 break; 
@@ -1540,6 +1581,82 @@ function seq27Click() {
                 document.getElementById("chatbox").style.display = "none"; 
                 break; 
             }
+    }
+}
+
+// Sequence 28
+function seq28Start() {
+    active = 28;
+    seq28 = 0;
+    seq28++
+    switch(seq28) {
+        case 0:
+            break;
+        case 1:
+            document.getElementById("chatboxinner").style.color = 'rgb(225, 255, 255)';
+            document.getElementById("chatbox").style.display = "block";
+            document.getElementById("chatboxinner").style.fontStyle = "normal";
+            document.getElementById("chatboxinner").innerText = "..."; 
+            break;   
+    }   
+}
+
+function seq28Click() {
+    if (active == 28) {
+        seq28++
+        switch(seq28) {
+            case 2:
+                document.getElementById("chatboxinner").style.color = 'rgb(225, 0, 0)';
+                document.getElementById("chatboxinner").style.fontStyle = "normal";
+                document.getElementById("chatboxinner").innerText = "P R O F E S S O R ?"; 
+                break; 
+            case 3:
+                document.getElementById("chatboxinner").innerText = "That not professor is it..."; 
+                break; 
+            case 4:
+                document.getElementById("chatboxinner").innerText = "A Friend?"; 
+                break; 
+            case 5:
+                document.getElementById("light").style.pointerEvents = "all";
+                document.getElementById("chatbox").style.display = "none"; 
+                break; 
+            }
+    }
+}
+
+function key() {
+    document.getElementById("key").style.display = "block";
+    document.getElementById("keyV").style.display = "block";
+}
+
+
+// Jumpscare Functions - - - - - - - - - - - - - - 
+function jumpscare() {
+    document.getElementById("monsterScare").style.display = "block";
+    jumpscareAnim();
+}
+
+function jumpscareAnim() {
+    for (let i = 1; i <= 1001; i += 10) {
+        setTimeout(() => {
+            document.getElementById("monsterScare").style.scale = i;
+        }, i);
+        if (i == 1001) {
+            jumpscareMain();
+            console.log("fuck yea");
+        }
+    }
+}
+
+function jumpscareMain() {
+    for (let i = 0; i <= 100; i++) {
+        setTimeout(() => {
+            if (i % 2 == 1) {
+                document.getElementById("monsterScare").src = "img/dave2invert.jpg";
+            } else {
+                document.getElementById("monsterScare").src = "img/dave2.jpeg";
+            }
+        }, i*10);
     }
 }
 
@@ -1647,16 +1764,23 @@ function startTimer() {
         if (elapsedTime <= 0) {
             pauseTimer();
             document.getElementById("countdown").innerHTML = '0.000';
+            document.getElementById("darkness").style.display = "block"; 
+            document.getElementById("darkness2").style.display = "block"; 
+            setTimeout(jumpscare, 5000);
         } else if (elapsedTime <= 10000 && !Stage3) {
             Stage3 = true;
             pauseTimer();
-            document.getElementById("static").style.opacity = "0.6";
+            document.getElementById("static").style.opacity = "0.5";
             document.getElementById("countdown").innerHTML = '10.000';
             document.getElementById("light").style.pointerEvents = "none";
             document.getElementById("light").src = "img/off.png";
+            document.getElementById("trim2").style.display = "block";
             document.getElementById("monster").classList.add('stage3');
             document.getElementById("trim").classList.add('stage3');
+            document.getElementById("dave").classList.add('stage3');
+            document.getElementById("trim2").classList.add('stage3');
             document.getElementById("darkness").style.display = "block"; 
+            setTimeout(seq28Start, 2000);
         } else if (elapsedTime <= 20000 && !Stage2) {
             Stage2 = true;
             pauseTimer();
@@ -1665,10 +1789,11 @@ function startTimer() {
             document.getElementById("light").style.pointerEvents = "none";
             document.getElementById("light").src = "img/off.png";
             document.getElementById("dave").src = "img/dave2.jpeg";
-            document.getElementById("dave").style.display = "block";
+            document.getElementById("trim2").style.display = "block";
             document.getElementById("monster").classList.add('stage2');
             document.getElementById("trim").classList.add('stage2');
             document.getElementById("dave").classList.add('stage2');
+            document.getElementById("trim2").classList.add('stage2');
             document.getElementById("darkness").style.display = "block"; 
             setTimeout(seq27Start, 2000);
         }
@@ -1683,7 +1808,7 @@ function pauseTimer() {
 function lightSwitch() {
     if (document.getElementById("darkness").style.display == "block") {
         document.getElementById("darkness").style.display = "none";
-        document.getElementById("dave").style.display = "none"; 
+        document.getElementById("trim2").style.display = "none"; 
         document.getElementById("light").src = "img/on.png";
         if (light1) {
             document.getElementById("light").style.pointerEvents = "none";
@@ -1694,7 +1819,7 @@ function lightSwitch() {
         }
     } else if (document.getElementById("darkness").style.display == "none") {
         document.getElementById("darkness").style.display = "block"; 
-        document.getElementById("dave").style.display = "block";
+        document.getElementById("trim2").style.display = "block";
         document.getElementById("light").src = "img/off.png";
         pauseTimer();
     }

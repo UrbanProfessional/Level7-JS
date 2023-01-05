@@ -96,6 +96,114 @@ body {
 
 }
 
+#tutorial {
+    border: 5px solid rgb(0, 0, 0);
+    overflow: scroll;
+    pointer-events: all;
+    display: none;
+    background-color: rgb(10, 10, 10);
+    border-radius: 5px;
+    height: 50%;
+    width: 40%;
+    margin: auto;
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    right: 0px;
+    bottom: 0px;
+    color: rgb(212, 209, 206);
+    font-family: 'Special Elite', monospace;
+    font-size: 130%;
+    padding: 15px 15px 15px 15px;
+    z-index: 20;
+
+}
+
+#tutorialH {
+    text-align: center;
+    font-size: 150%;
+}
+
+#tutorialT {
+    text-align: center;
+    font-size: 300%;
+    margin-top: 0px;
+}
+
+#tutorialB {
+    margin-top: 100px;
+    font-size: 150%;
+    text-align: center;
+    text-decoration: underline;
+    margin-bottom: 0px;
+}
+#tutorialB:hover {
+    color: darkred;
+    cursor: pointer;
+}
+
+
+#credits {
+    border: 5px solid rgb(0, 0, 0);
+    overflow: scroll;
+    pointer-events: all;
+    display: none;
+    background-color: rgb(10, 10, 10);
+    border-radius: 5px;
+    height: 50%;
+    width: 40%;
+    margin: auto;
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    right: 0px;
+    bottom: 0px;
+    color: rgb(212, 209, 206);
+    font-family: 'Special Elite', monospace;
+    font-size: 130%;
+    padding: 15px 15px 15px 15px;
+    z-index: 20;
+
+}
+
+#creditsT {
+    margin-top: 0;
+    text-align: center;
+    font-size: 200%;
+}
+#creditsP {
+    margin-top: 20px;
+    text-align: center;
+    font-size: 100%;
+    margin-bottom: 0;
+}
+#creditsN {
+    margin-top: 5px;
+    text-align: center;
+    font-size: 120%;
+}
+#creditsF {
+    margin-top: 50px;
+    text-align: center;
+    font-size: 100%;
+}
+#creditsB {
+    margin-top: 100px;
+    font-size: 150%;
+    text-align: center;
+    text-decoration: underline;
+    margin-bottom: 0px;
+}
+#creditsB:hover {
+    color: darkred;
+    cursor: pointer;
+}
+#creditsL {
+    text-align: center;
+    margin-top: 40px;
+}
+
+
 /* Game Pages CSS - - - - - - - -*/
 #hud {
     pointer-events: none;
@@ -228,6 +336,28 @@ body {
     background-color: rgba(145, 0, 0, 0.501);
     border-radius: 5px;
     box-shadow: 0 0 5px 5px rgba(145, 0, 0, 0.501);
+}
+
+#key {
+    display: none;
+    position: absolute;
+    right: 20px;
+    top: 140px;
+    width: 40px;
+    height: 40px;
+    background-color: rgba(145, 0, 0, 0.501);
+    border-radius: 5px;
+    box-shadow: 0 0 5px 5px rgba(145, 0, 0, 0.501);
+}
+
+#keyV {
+    display: none;
+    position: absolute;
+    right: 23px;
+    top: 148px;
+    width: 35px;
+    height: 28px;
+    transform: rotate(45deg);
 }
 
 /* Start Page */
@@ -583,6 +713,7 @@ body {
     top: 0;
     position: fixed;
     z-index: 10;
+    overflow: hidden;
 }
 
 #blood {
@@ -600,33 +731,66 @@ body {
     box-shadow: 0 0 20px 20px rgb(177, 2, 2, 0.301);
 }
 
-#dave {
-    z-index: 2;
+#keyFV {
+    z-index: 3;
     display: none;
+    position: absolute;
+    top: 774px;
+    left: 850px;
+    width: 50px;
+    height: 15px;
+    border-radius: 200px;
+}
+#keyFV:hover {
+    background-color: rgba(177, 2, 2, 0.301);
+    box-shadow: 0 0 10px 10px rgb(177, 2, 2, 0.301);
+}
+#keyF {
+    z-index: 0;
+    display: none;
+    position: absolute;
+    top: 755px;
+    left: 840px;
+    width: 100px;
+    height: 50px;
+    border-radius: 200px;
+}
+
+#dave {
     width: 30px;
     height: 140px;
+}
+#trim2 {
+    overflow: hidden;
+    display: none;
+    z-index: 2;
     position: absolute;
-    top: 460px;
+    top: 475px;
     left: 540px;
+    width: 30px;
+    height: 90px;   
 }
 #dave.stage2 {
-    z-index: 2;
-    display: none;
     width: 180px;
     height: 90px;
-    position: absolute;
-    top: 600px;
-    left: 550px;
 }
-/* #dave {
-    z-index: 2;
-    display: none;
-    width: 30px;
-    height: 140px;
-    position: absolute;
-    top: 450px;
-    left: 540px;
-} */
+#trim2.stage2 {
+    top: 630px;
+    left: 570px;
+    width: 180px;
+    height: 50px; 
+}
+
+#dave.stage3 {
+    width: 600px;
+    height: 350px;
+}
+#trim2.stage3 {
+    top: 850px;
+    left: 180px;
+    width: 900px;
+    height: 180px;   
+}
 
 #countdown {
     display: none;
@@ -676,6 +840,18 @@ body {
     left: -1600px;
     width: 2500px;
     height: 845px;
+}
+
+#monsterScare {
+    display: block;
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    margin: auto;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
 }
 
 
