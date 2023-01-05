@@ -6,6 +6,7 @@ function rmWarn() {
 // Main Menu Tutorial and Credits Window Logic
 function tutorial() {
     document.getElementById("tutorial").style.display = "block";
+    document.getElementById("tutorial").scrollTop = '0';
     document.getElementById("mB").style.pointerEvents = "none";
     
 }
@@ -16,6 +17,7 @@ function tutorialClose() {
 
 function credits() {
     document.getElementById("credits").style.display = "block";
+    document.getElementById("credits").scrollTop = '0';
     document.getElementById("mB").style.pointerEvents = "none";
 }
 function creditsClose() {
@@ -51,16 +53,21 @@ function init() {
     localStorage.setItem('lobbyFirst', 1);
     localStorage.setItem('class1First', 1);
     localStorage.setItem('audiFirst' , 1);
+    localStorage.setItem('bossFirst' , 1);
 }
 
 
-// Item Icon Load
+// Item Icon Load Check Per New Scene
 function itemLoad() {
     if (parseInt(localStorage.getItem('paperclip')) == 1) {
         document.getElementById("paperclip").style.display = "block";
     }
     if (parseInt(localStorage.getItem('crowbar')) == 1) {
         document.getElementById("crowbar").style.display = "block";
+    }
+    if (parseInt(localStorage.getItem('stairKey')) == 1) {
+        document.getElementById("key").style.display = "block";
+        document.getElementById("keyV").style.display = "block";
     }
 }
 
@@ -827,15 +834,27 @@ function seq13Click() {
                 document.getElementById("chatboxinner").innerText = "Behind those curtains would be the backstage..."; 
                 break; 
             case 3:
-                document.getElementById("chatboxinner").style.fontStyle = "normal";
-                document.getElementById("chatboxinner").innerText = "For some reason, I shudder just thinking what could be back there.."; 
+                if (parseInt(localStorage.getItem('bossFirst')) == 1) {
+                    document.getElementById("chatboxinner").style.fontStyle = "normal";
+                    document.getElementById("chatboxinner").innerText = "For some reason, I shudder just thinking what could be back there..";
+                } else {
+                    document.getElementById("chatboxinner").style.fontStyle = "normal";
+                    document.getElementById("chatboxinner").innerText = "I'm not going back there again...";
+                } 
                 break;
             case 4:
                 document.getElementById("chatboxinner").style.fontStyle = "normal";
-                document.getElementById("chatboxinner").innerText = "Should I head in?"; 
-                document.getElementById("yes").style.display = "block";
-                document.getElementById("no").style.display = "block"; 
-                break; 
+                if (parseInt(localStorage.getItem('bossFirst')) == 1) {    
+                    document.getElementById("chatboxinner").innerText = "Should I head in?"; 
+                    document.getElementById("yes").style.display = "block";
+                    document.getElementById("no").style.display = "block"; 
+                } else {
+                    document.getElementById("chatbox").style.display = "none"; 
+                    document.getElementById("backstage").style.display = "block"; 
+                    document.getElementById("exit1").style.display = "block"; 
+                    document.getElementById("exit2").style.display = "block"; 
+                }
+                break;
             }
     }
 }
@@ -1189,6 +1208,8 @@ function seq21Start() {
     active = 21;
     seq21 = 0;
     seq21++
+    localStorage.setItem('stairKey', 0);
+    localStorage.setItem('bossFirst', 1);
     itemLoad();
     document.getElementById("static").style.display = "none";
     switch(seq21) {
@@ -1196,6 +1217,7 @@ function seq21Start() {
             break;
         case 1:
             document.getElementById("chatbox").style.display = "block";
+            document.getElementById("back").style.display = 'none'; 
             document.getElementById("chatboxinner").innerText = "I've been stumbling through darkness for several minutes now..."; 
             break;   
     }
@@ -1316,7 +1338,7 @@ function seq22Click() {
                 document.getElementById("chatboxinner").innerText = "*For the briefest of a tick, the flash of the gun lights the area...*"; 
                 break; 
             case 3:
-                document.getElementById("chatboxinner").innerText = "I am somewhere..."; 
+                document.getElementById("chatboxinner").innerText = "I am somewhere...";
                 break; 
             case 4:
                 document.getElementById("darkness2").style.display = "none"; 
@@ -1503,7 +1525,7 @@ function seq26Click() {
         switch(seq26) {
             case 2:
                 document.getElementById("chatboxinner").style.fontStyle = "Italic";
-                document.getElementById("chatboxinner").innerText = "*You pull out your gun and aim it at the faint eyes...*"; 
+                document.getElementById("chatboxinner").innerText = "*You pull out your gun and aim it at the creoud voice...*"; 
                 break; 
             case 3:
                 document.getElementById("chatboxinner").style.fontStyle = "normal";
@@ -1624,10 +1646,53 @@ function seq28Click() {
     }
 }
 
+
+// Once key is found
 function key() {
+    document.getElementById('equipKey').play();
+    localStorage.setItem('stairKey', 1);
     document.getElementById("key").style.display = "block";
     document.getElementById("keyV").style.display = "block";
+    localStorage.setItem('bossFirst' , 0);
+    document.getElementById("back").style.display = "block";
 }
+
+// When Back button is pressed *Key was found*
+function seq29Start() {
+    document.getElementById("darkness2").style.display = "block";
+    pauseTimer();
+    active = 29;
+    seq29 = 0;
+    seq29++
+    switch(seq29) {
+        case 0:
+            break;
+        case 1:
+            document.getElementById("chatboxinner").style.color = 'rgb(225, 255, 255)';
+            document.getElementById("chatbox").style.display = "block";
+            document.getElementById("chatboxinner").style.fontStyle = "Italic";
+            document.getElementById("chatboxinner").innerText = "*You quicky exit backstage through the curtains*";
+            break;   
+    }   
+}
+
+function seq29Click() {
+    if (active == 29) {
+        seq29++
+        switch(seq29) {
+            case 2:
+                document.getElementById("chatboxinner").style.color = 'rgb(225, 255, 255)';
+                document.getElementById("chatboxinner").style.fontStyle = "Italic";
+                document.getElementById("chatboxinner").innerText = "*and after 5 or so minutes of frantic sprinting...*"; 
+                break; 
+            case 3:
+                document.getElementById("chatbox").style.display = "none";
+                window.location.href="auditorium.html"; 
+                break; 
+            }
+    }
+}
+
 
 
 // Jumpscare Functions - - - - - - - - - - - - - - 
@@ -1659,6 +1724,8 @@ function jumpscareMain() {
         }, i*10);
     }
 }
+
+
 
 // Extra Sequences - - - - - - - - - 
 seq20 = 0;
@@ -1744,6 +1811,7 @@ function mainClick() {
     seq26Click();
     seq27Click();
     seq28Click();
+    seq29Click();
 }
 
 // Timer
