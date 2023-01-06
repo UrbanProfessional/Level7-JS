@@ -8,8 +8,7 @@ function tutorial() {
     document.getElementById("tutorial").style.display = "block";
     document.getElementById("tutorial").scrollTop = '0';
     document.getElementById("mB").style.pointerEvents = "none";
-    
-}
+    }
 function tutorialClose() {
     document.getElementById("tutorial").style.display = "none";
     document.getElementById("mB").style.pointerEvents = "all";
@@ -1525,7 +1524,7 @@ function seq26Click() {
         switch(seq26) {
             case 2:
                 document.getElementById("chatboxinner").style.fontStyle = "Italic";
-                document.getElementById("chatboxinner").innerText = "*You pull out your gun and aim it at the creoud voice...*"; 
+                document.getElementById("chatboxinner").innerText = "*You pull out your gun and aim it towards the voice...*"; 
                 break; 
             case 3:
                 document.getElementById("chatboxinner").style.fontStyle = "normal";
@@ -1697,33 +1696,47 @@ function seq29Click() {
 
 // Jumpscare Functions - - - - - - - - - - - - - - 
 function jumpscare() {
+    document.getElementById("hud").style.display = "none";
+    document.getElementById("static").style.display = "none";
+    document.getElementById("monster").style.display = "none";
     document.getElementById("monsterScare").style.display = "block";
-    jumpscareAnim();
+    document.getElementById("blood1").style.display = "block";
+    document.getElementById("blood4").style.display = "block";
+    setTimeout(jumpscareFlash, 2000);
+    setTimeout(jumpscareUnflash, 2100);
+    setTimeout(jumpscareFlash, 4000);
+    setTimeout(jumpscareUnflash, 4100);
+    setTimeout(gameOver, 5000);
 }
 
-function jumpscareAnim() {
-    for (let i = 1; i <= 1001; i += 10) {
-        setTimeout(() => {
-            document.getElementById("monsterScare").style.scale = i;
-        }, i);
-        if (i == 1001) {
-            jumpscareMain();
-            console.log("fuck yea");
-        }
-    }
+function jumpscareFlash() {
+    document.getElementById("darkness2").style.display = "none";
+    document.getElementById("darkness").style.display = "none";
 }
 
-function jumpscareMain() {
-    for (let i = 0; i <= 100; i++) {
-        setTimeout(() => {
-            if (i % 2 == 1) {
-                document.getElementById("monsterScare").src = "img/dave2invert.jpg";
-            } else {
-                document.getElementById("monsterScare").src = "img/dave2.jpeg";
-            }
-        }, i*10);
-    }
+function jumpscareUnflash() {
+    document.getElementById("darkness2").style.display = "block";
+    document.getElementById("darkness").style.display = "block";
+    document.getElementById("blood2").style.display = "block";
+    document.getElementById("blood3").style.display = "block";
 }
+
+// Jumpscare *POPPING OUT* Animation WIP
+// function jumpscareAnim() {
+
+//     let loopFinished = false;
+//     for (let i = 1; i <= 1001; i += 10) {
+//         setTimeout(() => {
+//             document.getElementById("monsterScare").style.scale = i;
+//             console.log(i);
+//         }, i * 2);
+//     }
+//     if (i == 2000) {
+//         jumpscareMain();
+//         console.log("animFinished");
+//     }
+// }
+
 
 
 

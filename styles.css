@@ -735,7 +735,7 @@ body {
 }
 
 #keyFV {
-    z-index: 3;
+    z-index: 1;
     display: none;
     position: absolute;
     top: 774px;
@@ -846,17 +846,58 @@ body {
 }
 
 #monsterScare {
-    display: block;
-    position: absolute;
-    width: 1px;
-    height: 1px;
-    margin: auto;
-    top: 0;
+    z-index: 0;
+    display: none;
+    position: fixed;
+    bottom: 0;
+    height: 100%;
+    margin-left: auto;
+    margin-right: auto;
     left: 0;
     right: 0;
-    bottom: 0;
 }
 
+#blood1 {
+    z-index: 0;
+    display: none;
+    position: fixed;
+    bottom: 0;
+    width: 1000px;
+    margin-left: auto;
+    margin-right: auto;
+    left: 0;
+    right: 0;
+}
+
+#blood2 {
+    z-index: 0;
+    display: none;
+    position: fixed;
+    bottom: 0;
+    width: 1000px;
+    left: -400px;
+    transform: rotate(68deg);
+}
+
+#blood3 {
+    z-index: 0;
+    display: none;
+    position: fixed;
+    bottom: 0;
+    width: 1000px;
+    right: -400px;
+    transform: rotate(-32deg);
+}
+
+#blood4 {
+    z-index: 0;
+    display: none;
+    position: fixed;
+    bottom: -100px;
+    width: 1000px;
+    right: 200;
+    transform: rotate(32deg);
+}
 
 /* Game Over CSS - - - - - - - - - - */
 #over {
