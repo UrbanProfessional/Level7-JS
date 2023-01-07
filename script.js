@@ -1476,7 +1476,6 @@ function seq25Start() {
     document.getElementById("blood").style.display = "none";
     document.getElementById("darkness").style.display = "block";
     document.getElementById("trim2").style.display = "block";
-    document.getElementById("clock").pause();
     document.getElementById("light").src = "img/off.png";
     setTimeout(seq25Start2, 500);
 }
@@ -1503,6 +1502,8 @@ function seq25Click() {
                 document.getElementById("chatboxinner").style.color = 'rgb(225, 0, 0)';
                 document.getElementById("chatboxinner").style.fontStyle = "Italic";
                 document.getElementById("chatboxinner").innerText = "Professor is that you?"; 
+                document.getElementById("song").volume = 0.1;
+                document.getElementById("song").play();
                 break; 
             case 3:
                 document.getElementById("chatboxinner").innerText = "Professor I hate the dark..."; 
@@ -1530,6 +1531,7 @@ function seq25Click() {
                 break; 
             case 11:
                 document.getElementById("chatboxinner").innerText = "Professor do I get 100? PROFESSOR...P R O F E S S O R..."; 
+                document.getElementById("sndKey").play();
                 break;
             case 12:
                 document.getElementById("chatboxinner").innerText = "Have I been a good student?"; 
@@ -1703,6 +1705,7 @@ function seq29Start() {
     document.getElementById("darkness2").style.display = "block";
     pauseTimer();
     document.getElementById("clock").pause();
+    document.getElementById("song").pause();
     active = 29;
     seq29 = 0;
     seq29++
@@ -1748,8 +1751,6 @@ function jumpscare() {
     document.getElementById("blood4").style.display = "block";
     setTimeout(jumpscareFlash, 2000);
     setTimeout(jumpscareUnflash, 2100);
-    // setTimeout(jumpscareFlash2, 4000);
-    // setTimeout(jumpscareUnflash2, 4100);
     setTimeout(gameOver, 5000);
 }
 
@@ -1765,40 +1766,6 @@ function jumpscareUnflash() {
     document.getElementById("blood2").style.display = "block";
     document.getElementById("blood3").style.display = "block";
 }
-
-
-// Extra Jumpscare Code *May be implemented later update*
-// function jumpscareFlash2() {
-//     gunshot2();
-//     document.getElementById("darkness2").style.display = "none";
-//     document.getElementById("darkness").style.display = "none";
-// }
-
-// function jumpscareUnflash2() {
-//     document.getElementById("darkness2").style.display = "block";
-//     document.getElementById("darkness").style.display = "block";
-//     document.getElementById("blood2").style.display = "block";
-//     document.getElementById("blood3").style.display = "block";
-// }
-
-// Jumpscare *POPPING OUT* Animation WIP
-// function jumpscareAnim() {
-
-//     let loopFinished = false;
-//     for (let i = 1; i <= 1001; i += 10) {
-//         setTimeout(() => {
-//             document.getElementById("monsterScare").style.scale = i;
-//             console.log(i);
-//         }, i * 2);
-//     }
-//     if (i == 2000) {
-//         jumpscareMain();
-//         console.log("animFinished");
-//     }
-// }
-
-
-
 
 // Extra Sequences - - - - - - - - - 
 seq20 = 0;
@@ -1899,9 +1866,11 @@ function timerInit() {
 elapsedTime = 30000;
 document.getElementById("countdown").style.display = "block";
 document.getElementById("trim").style.display = "block";
+document.getElementById("arrow1").style.display = "block";
 document.getElementById("blood").style.display = "none";
 document.getElementById("countdown").innerHTML = (elapsedTime / 1000).toFixed(3);
 document.getElementById("clock").volume = 0.1;
+document.getElementById("song").volume = 0.1;
 }
 
 Stage2 = false;
@@ -1913,6 +1882,7 @@ function startTimer() {
         if (elapsedTime <= 0) {
             pauseTimer();
             document.getElementById("clock").pause();
+            document.getElementById("song").pause();
             document.getElementById("countdown").innerHTML = '0.000';
             document.getElementById("darkness").style.display = "block"; 
             document.getElementById("darkness2").style.display = "block"; 
@@ -1931,7 +1901,8 @@ function startTimer() {
             document.getElementById("trim").classList.add('stage3');
             document.getElementById("dave").classList.add('stage3');
             document.getElementById("trim2").classList.add('stage3');
-            document.getElementById("darkness").style.display = "block"; 
+            document.getElementById("darkness").style.display = "block";
+            document.getElementById("arrow3").style.display = "block";
             setTimeout(seq28Start, 2000);
         } else if (elapsedTime <= 20000 && !Stage2) {
             Stage2 = true;
@@ -1949,6 +1920,7 @@ function startTimer() {
             document.getElementById("dave").classList.add('stage2');
             document.getElementById("trim2").classList.add('stage2');
             document.getElementById("darkness").style.display = "block"; 
+            document.getElementById("arrow2").style.display = "block";
             setTimeout(seq27Start, 2000);
         }
     }, 11);

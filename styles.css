@@ -1,12 +1,40 @@
 @import url('https://fonts.googleapis.com/css?family=Special+Elite');
 
 /* General CSS */
+#menuHTML {
+    height: 100%;
+    overflow: hidden;
+}
+
 body {
     background-color: black;
     margin: 0 0 0 0;
 }
 
+#menu {
+    display: grid;
+    height: 100%;
+}
+
+/* Floor Counter top of screen */
+#floor {
+    display: none;
+    color: rgb(212, 209, 206);
+    position: absolute;
+    font-family: 'Special Elite', monospace;
+    font-size: 150%;
+    font-weight: 900;
+    margin-left: 45%;
+    top: 5px;
+    margin-top: 0;
+} 
+
 /* Main Menu CSS - - - - - - - - - - - */
+#menuContent {
+    grid-column-start: 1;
+    grid-column-end: 3;
+}
+
 #warning {
     position: fixed;
     z-index: 2;
@@ -84,6 +112,7 @@ body {
     cursor: pointer;
 }
 
+
 #static {
     position: fixed;
     height: 100%;
@@ -94,6 +123,34 @@ body {
     top: 0;
     opacity: 0.1;
 
+}
+
+#version {
+    color: rgb(212, 209, 206);
+    font-family: 'Special Elite', monospace;
+    position: absolute;
+    font-size: 80%;
+    margin: 0;
+    bottom: 5px;
+    left: 10px;
+}
+
+#ads {
+    z-index: 1;
+    grid-column-start: 4;
+    grid-column-end: 5;
+    border: 5px solid rgb(0, 0, 0);
+    height: 100%;
+    width: 100%;
+    background-color: rgb(10, 10, 10);
+    padding: 10px, 10px, 10px, 10px;
+}
+
+#ads p {
+    color: rgb(182, 179, 177);
+    font-family: 'Special Elite', monospace;
+    font-size: 100%;
+    text-align: center;
 }
 
 #tutorial {
@@ -451,6 +508,10 @@ body {
     background-image: url('img/start.jpg');
     background-size: cover;
     background-repeat: no-repeat;
+    width: 1920px;
+    height: 1468.8px;
+    margin: 0 0 0 0;
+    overflow: scroll;
 }
 
 /* Entrance Page */
@@ -462,6 +523,7 @@ body {
     width: 1500px;
     height: 1000px;
     margin: 0 0 0 0;
+    overflow: scroll;
 }
 #mainentrance {
     display: none;
@@ -981,6 +1043,41 @@ body {
     right: 200;
     transform: rotate(32deg);
 }
+
+/* Hinting Arrows CSS */
+#arrow1 {
+    display: none;
+    position: absolute;
+    opacity: 0.4;
+    top: 570px;
+    left: 230px;
+    width: 60px;
+    height: 30px;
+    transform: rotate(-10deg);
+}
+
+#arrow2 {
+    display: none;
+    position: absolute;
+    opacity: 0.8;
+    top: 500px;
+    left: 830px;
+    width: 60px;
+    height: 30px;
+    transform: rotate(40deg);
+}
+
+#arrow3 {
+    display: none;
+    position: absolute;
+    opacity: 0.5;
+    top: 720px;
+    left: 1080px;
+    width: 60px;
+    height: 30px;
+    transform: rotate(160deg);
+}
+
 
 /* Game Over CSS - - - - - - - - - - */
 #over {
