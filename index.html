@@ -21,11 +21,14 @@
     </h1>
     <div id="mB">
         <p onclick="init()" id="bMenu">Start</p>
+        <p onclick="audio()" id="bMenu">Audio</p>
         <p onclick="tutorial()" id="bMenu">Tutorial</p>
         <p onclick="credits()" id="bMenu">Credits</p>
     </div>
     <img id = "static" src="img/static.gif" alt="Null">
+    <!-- Audio -->
     <audio loop id="music" src="audio/menumusic.mp3"></audio>
+    <audio src="audio/pistol.mp3" id="gunshot"></audio>
 
     <!-- Pop-Up Menus -->
     <div id="tutorial">
@@ -53,6 +56,22 @@
         <p id="creditsL">-</p>
         <p id="creditsF">Special thanks to the members of the Theories Discord server</p>
         <p onclick="creditsClose()" id="creditsB">Close</p>
+    </div>
+    <div id="audio">
+        <p id="audioT">Audio Tests</p>
+        <p>A gunshot sound effect will play in</p>
+        <p onclick="audio()" id="audioC">...</p>
+        <p>Did you hear it? 
+        <p>Click the button below to do an ambience test</p>    
+        <p onclick="ambience()" id="audioC">Ambience Test</p>    
+        <p>If either test failed but the menu music is audible, then most likely your browser 
+        restricted it. Make sure that any automatic audio restriction for this page 
+        is turned off.</p>
+        <p>The option to change this setting may be anywhere in your browser. Usually you may find it at the top of your browser, you should see an option to enable audio 
+            on this page to play automatically.</p>
+        <p>Please enable said option. This game demo relies quite heavily on audio for cues and atmosphere.
+        </p>
+        <p onclick="audioClose()" id="audioB">Close</p>
     </div>
 </body>
 </html>

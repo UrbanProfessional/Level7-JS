@@ -3,7 +3,7 @@ function rmWarn() {
     document.getElementById("warning").style.display = "none";
     document.getElementById("music").play();
 }
-// Main Menu Tutorial and Credits Window Logic
+// Main Menu Tutorial, Audio, and Credits Window Logic
 function tutorial() {
     document.getElementById("tutorial").style.display = "block";
     document.getElementById("tutorial").scrollTop = '0';
@@ -24,14 +24,51 @@ function creditsClose() {
     document.getElementById("mB").style.pointerEvents = "all";
 }
 
+function audio() {
+    document.getElementById("audioC").innerHTML = '...';
+    document.getElementById("audio").style.display = "block";
+    document.getElementById("audio").scrollTop = '0';
+    document.getElementById("mB").style.pointerEvents = "none";
+    countdown = 5;
+    interval = setInterval(function() {
+        document.getElementById("audioC").innerHTML = countdown;
+        countdown--;
+        if (countdown < 0) {
+            clearInterval(interval);
+            countdown = 'Play Again';
+            document.getElementById("audioC").innerHTML = countdown;
+            audioTest = document.createElement("audio");
+            audioTest.src = "audio/pistol.mp3";
+            audioTest.toggleAttribute('autoplay');
+            // gunshot();
+        }
+    }, 1000);
+    }
+function audioClose() {
+    document.getElementById("audio").style.display = "none";
+    document.getElementById("mB").style.pointerEvents = "all";
+}
 
+
+// Functions for Ambience Audio Test Page
+function ambience() {
+    window.location.href="audio.html";    
+}
+
+function ambienceStart() {
+    document.getElementById('outdoor').play();    
+}
+
+function ambienceClose() {
+    window.location.href="index.html";    
+}
 
 // Game Over Function
 function gameOver() {
     window.location.href="over.html";
 }
 function over() {
-    document.getElementById("gunshot").play();
+    gunshot();
 }
 
 // Game Start Init
@@ -79,6 +116,7 @@ active = 0;
 seq = 0;
 
 function seqStart() {
+    document.getElementById('outdoor').play();
     seq = 0;
     document.getElementById("chatbox").style.display = "block";
     document.getElementById("chatboxinner").innerText = "The nightmares, the yearning, the insanity, all lead to here...";
@@ -124,6 +162,7 @@ function seqClick() {
 seq1 = 0;
 
 function seq1Start() {
+    document.getElementById('outdoor2').play();
     active = 1;
     document.getElementById("chatbox").style.display = "block";
     document.getElementById("chatboxinner").innerText = "So this is it... the entrance is right there...";
@@ -192,6 +231,7 @@ function seq3Start() {
     seq3 = 0;
     active = 3;
     itemLoad();
+    document.getElementById('sndHall').play();
     document.getElementById("chatbox").style.display = "block";
     document.getElementById("bin").style.display = "none"; 
     document.getElementById("toLobby").style.display = "none"; 
@@ -482,6 +522,7 @@ function seq8Start() {
     seq8 = 0;
     seq8++
     itemLoad();
+    document.getElementById('sndLobby').play();
     switch(seq8) {
         case 0:
             break;
@@ -956,6 +997,7 @@ function seq16Start() {
     seq16 = 0;
     seq16++
     itemLoad();
+    document.getElementById('sndClass').play();
     document.getElementById("locker1").style.display = "none"; 
     document.getElementById("locker2").style.display = "none"; 
     document.getElementById("locker3").style.display = "none";
@@ -1660,6 +1702,7 @@ function key() {
 function seq29Start() {
     document.getElementById("darkness2").style.display = "block";
     pauseTimer();
+    document.getElementById("clock").pause();
     active = 29;
     seq29 = 0;
     seq29++
@@ -1696,6 +1739,7 @@ function seq29Click() {
 
 // Jumpscare Functions - - - - - - - - - - - - - - 
 function jumpscare() {
+    document.getElementById("jumpscare").play();
     document.getElementById("hud").style.display = "none";
     document.getElementById("static").style.display = "none";
     document.getElementById("monster").style.display = "none";
@@ -1704,12 +1748,13 @@ function jumpscare() {
     document.getElementById("blood4").style.display = "block";
     setTimeout(jumpscareFlash, 2000);
     setTimeout(jumpscareUnflash, 2100);
-    setTimeout(jumpscareFlash, 4000);
-    setTimeout(jumpscareUnflash, 4100);
+    // setTimeout(jumpscareFlash2, 4000);
+    // setTimeout(jumpscareUnflash2, 4100);
     setTimeout(gameOver, 5000);
 }
 
 function jumpscareFlash() {
+    gunshot();
     document.getElementById("darkness2").style.display = "none";
     document.getElementById("darkness").style.display = "none";
 }
@@ -1720,6 +1765,21 @@ function jumpscareUnflash() {
     document.getElementById("blood2").style.display = "block";
     document.getElementById("blood3").style.display = "block";
 }
+
+
+// Extra Jumpscare Code *May be implemented later update*
+// function jumpscareFlash2() {
+//     gunshot2();
+//     document.getElementById("darkness2").style.display = "none";
+//     document.getElementById("darkness").style.display = "none";
+// }
+
+// function jumpscareUnflash2() {
+//     document.getElementById("darkness2").style.display = "block";
+//     document.getElementById("darkness").style.display = "block";
+//     document.getElementById("blood2").style.display = "block";
+//     document.getElementById("blood3").style.display = "block";
+// }
 
 // Jumpscare *POPPING OUT* Animation WIP
 // function jumpscareAnim() {
@@ -1788,6 +1848,13 @@ function seq21Unflash() {
 
 
 // Utility Functions
+function gunshot() {
+    document.getElementById("gunshot").play();
+}
+function gunshot2() {
+    document.getElementById("gunshot2").play();
+}
+
 function seqReset() {
     seq = 0;
     seq1 = 0;
@@ -1834,6 +1901,7 @@ document.getElementById("countdown").style.display = "block";
 document.getElementById("trim").style.display = "block";
 document.getElementById("blood").style.display = "none";
 document.getElementById("countdown").innerHTML = (elapsedTime / 1000).toFixed(3);
+document.getElementById("clock").volume = 0.1;
 }
 
 Stage2 = false;
@@ -1844,6 +1912,7 @@ function startTimer() {
         document.getElementById("countdown").innerHTML = (elapsedTime / 1000).toFixed(3);
         if (elapsedTime <= 0) {
             pauseTimer();
+            document.getElementById("clock").pause();
             document.getElementById("countdown").innerHTML = '0.000';
             document.getElementById("darkness").style.display = "block"; 
             document.getElementById("darkness2").style.display = "block"; 
@@ -1851,6 +1920,8 @@ function startTimer() {
         } else if (elapsedTime <= 10000 && !Stage3) {
             Stage3 = true;
             pauseTimer();
+            document.getElementById("clock").pause();
+            document.getElementById("clock").volume = 0.6;
             document.getElementById("static").style.opacity = "0.5";
             document.getElementById("countdown").innerHTML = '10.000';
             document.getElementById("light").style.pointerEvents = "none";
@@ -1865,6 +1936,8 @@ function startTimer() {
         } else if (elapsedTime <= 20000 && !Stage2) {
             Stage2 = true;
             pauseTimer();
+            document.getElementById("clock").pause();
+            document.getElementById("clock").volume = 0.3;
             document.getElementById("static").style.opacity = "0.3";
             document.getElementById("countdown").innerHTML = '20.000';
             document.getElementById("light").style.pointerEvents = "none";
@@ -1897,12 +1970,14 @@ function lightSwitch() {
         } else if (light2) {
             document.getElementById("static").style.display = "block";
             startTimer();
+            document.getElementById("clock").play();
         }
     } else if (document.getElementById("darkness").style.display == "none") {
         document.getElementById("darkness").style.display = "block"; 
         document.getElementById("trim2").style.display = "block";
         document.getElementById("light").src = "img/off.png";
         pauseTimer();
+        document.getElementById("clock").pause();
     }
 }
 
@@ -2016,14 +2091,14 @@ function no2() {
             document.getElementById("exit2").style.display = "block";
             break;
         case 21:
-            document.getElementById("gunshot").play();
             document.getElementById("yes").style.display = "none";
             document.getElementById("no").style.display = "none";
             document.getElementById("chatbox").style.display = "none";
+            gunshot();
             setTimeout(seq21Flash, 500);
             setTimeout(seq21Unflash, 510);
             setTimeout(seq22Start, 3000);
-            document.getElementById("clock").volume = 0.1;
+            document.getElementById("clock").pause();
             break;
     }
 }
