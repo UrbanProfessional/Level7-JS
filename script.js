@@ -2066,7 +2066,7 @@ function no2() {
             document.getElementById("yes").style.display = "none";
             document.getElementById("no").style.display = "none";
             document.getElementById("chatbox").style.display = "none";
-            gunshot();
+            setTimeout(gunshot, 490);
             setTimeout(seq21Flash, 500);
             setTimeout(seq21Unflash, 510);
             setTimeout(seq22Start, 3000);

@@ -142,6 +142,7 @@ body {
     border: 5px solid rgb(0, 0, 0);
     height: 100%;
     width: 100%;
+    max-width: 300px;
     background-color: rgb(10, 10, 10);
     padding: 10px, 10px, 10px, 10px;
 }
@@ -520,15 +521,15 @@ body {
     border: 5px solid rgb(39, 0, 0);
     background-size: contain;
     background-repeat: no-repeat;
-    width: 1500px;
-    height: 1000px;
+    width: 1920px;
+    height: 1280px;
     margin: 0 0 0 0;
     overflow: scroll;
 }
 #mainentrance {
     display: none;
     position: relative;
-    margin: 600px 0 0 630px;
+    margin: 820px 0 0 830px;
     z-index: 3;
     width: 250px;
     height: 250px;
@@ -545,18 +546,18 @@ body {
     border: 5px solid rgb(39, 0, 0);
     background-size: contain;
     background-repeat: no-repeat;
-    width: 1335px;
-    height: 1000px;
+    width: 1920px;
+    height: 1438px;
     margin: 0 0 0 0;
 }
 
 #bin {
     z-index: 3;
     display: none;
-    position: relative;
-    margin: 610px 0 0 170px;
-    width: 100px;
-    height: 100px;
+    position: absolute;
+    margin: 880px 0 0 240px;
+    width: 150px;
+    height: 150px;
     border-radius: 100px;
 }
 #bin:hover {
@@ -567,10 +568,10 @@ body {
 #toLobby {
     z-index: 3;
     display: none;
-    position: relative;
-    margin: -380px 0 0 610px;
-    width: 100px;
-    height: 100px;
+    position: absolute;
+    margin: 490px 0 0 890px;
+    width: 120px;
+    height: 120px;
     border-radius: 100px;
 }
 #toLobby:hover {
@@ -581,10 +582,10 @@ body {
 #bulletin {
     z-index: 3;
     display: none;
-    position: relative;
-    margin: -190px 0 0 1000px;
-    width: 250px;
-    height: 250px;
+    position: absolute;
+    margin: 340px 0 0 1400px;
+    width: 500px;
+    height: 350px;
     border-radius: 200px;
 }
 #bulletin:hover {
@@ -596,9 +597,9 @@ body {
     z-index: 3;
     display: none;
     position: relative;
-    margin: -190px 0 0 850px;
+    margin: 440px 0 0 1230px;
     width: 50px;
-    height: 260px;
+    height: 400px;
     border-radius: 200px;
 }
 #classroom1:hover {
@@ -613,8 +614,8 @@ body {
     border: 5px solid rgb(39, 0, 0);
     background-size: contain;
     background-repeat: no-repeat;
-    width: 1600px;
-    height: 1200px;
+    width: 1920px;
+    height: 1440px;
     margin: 0 0 0 0;
 }
 
@@ -622,9 +623,9 @@ body {
     z-index: 3;
     display: none;
     position: absolute;
-    margin: 370px 0 0 790px;
-    width: 120px;
-    height: 240px;
+    margin: 460px 0 0 945px;
+    width: 125px;
+    height: 260px;
     border-radius: 100px;
 }
 #audiDoor:hover {
@@ -636,8 +637,8 @@ body {
     z-index: 3;
     display: none;
     position: absolute;
-    margin: 400px 0 0 -25px;
-    width: 100px;
+    margin: 500px 0 0 -25px;
+    width: 120px;
     height: 180px;
     border-radius: 100px;
 }
@@ -650,9 +651,9 @@ body {
     z-index: 3;
     display: none;
     position: absolute;
-    margin: 415px 0 0 280px;
-    width: 350px;
-    height: 100px;
+    margin: 515px 0 0 330px;
+    width: 400px;
+    height: 120px;
     border-radius: 100px;
 }
 #display:hover {
@@ -665,8 +666,8 @@ body {
     z-index: 2;
     display: none;
     position: absolute;
-    top: 480px;
-    left: 790px;
+    top: 600px;
+    left: 960px;
     height: 40px;
     width: 130px;
     transform: rotate(32deg)
@@ -676,8 +677,8 @@ body {
     z-index: 2;
     display: none;
     position: absolute;
-    top: 550px;
-    left: 800px;
+    top: 670px;
+    left: 980px;
     height: 40px;
     width: 118px;
     transform: rotate(-20deg)
@@ -687,8 +688,8 @@ body {
     z-index: 2;
     display: none;
     position: absolute;
-    top: 650px;
-    left: 900px;
+    margin-top: 780px;
+    margin-left: 1100px;
     height: 20px;
     width: 120px;
     transform: rotate(9deg)
@@ -698,8 +699,8 @@ body {
     z-index: 2;
     display: none;
     position: absolute;
-    top: 650px;
-    left: 900px;
+    margin-top: 780px;
+    margin-left: 1100px;
     height: 25px;
     width: 120px;
     transform: rotate(-9deg)
@@ -711,8 +712,8 @@ body {
     border: 5px solid rgb(39, 0, 0);
     background-size: cover;
     background-repeat: no-repeat;
-    width: 1536px;
-    height: 1152px;
+    width: 1920px;
+    height: 1440px;
     margin: 0 0 0 0;
 }
 
@@ -720,10 +721,10 @@ body {
     z-index: 3;
     display: block;
     position: absolute;
-    top: 380px;
-    left: 535px;
-    width: 300px;
-    height: 100px;
+    margin-top: 470px;
+    margin-left: 625px;
+    width: 430px;
+    height: 130px;
     border-radius: 200px;
 }
 #backstage:hover {
@@ -735,8 +736,8 @@ body {
     z-index: 3;
     display: block;
     position: absolute;
-    top: 465px;
-    left: 20px;
+    margin-top: 600px;
+    margin-left: 30px;
     width: 100px;
     height: 100px;
     border-radius: 200px;
@@ -750,8 +751,8 @@ body {
     z-index: 3;
     display: block;
     position: absolute;
-    margin-top: 450px;
-    margin-left: 1220px;
+    margin-top: 580px;
+    margin-left: 1540px;
     width: 100px;
     height: 100px;
     border-radius: 200px;
@@ -767,8 +768,8 @@ body {
     border: 5px solid rgb(39, 0, 0);
     background-size: cover;
     background-repeat: no-repeat;
-    width: 1367px;
-    height: 1822px;
+    width: 1920px;
+    height: 1730px;
     margin: 0 0 0 0;
 }
 
@@ -776,10 +777,10 @@ body {
     z-index: 3;
     display: none;
     position: absolute;
-    top: 790px;
-    left: 625px;
-    width: 50px;
-    height: 180px;
+    margin-top: 300px;
+    margin-left: 810px;
+    width: 60px;
+    height: 200px;
     border-radius: 200px;
 }
 #locker1:hover {
@@ -791,10 +792,10 @@ body {
     z-index: 3;
     display: none;
     position: absolute;
-    top: 960px;
-    left: 960px;
-    width: 50px;
-    height: 100px;
+    margin-top: 530px;
+    margin-left: 1250px;
+    width: 60px;
+    height: 110px;
     border-radius: 100px;
 }
 #locker2:hover {
@@ -806,10 +807,10 @@ body {
     z-index: 3;
     display: none;
     position: absolute;
-    top: 770px;
-    left: 1235px;
-    width: 70px;
-    height: 210px;
+    margin-top: 270px;
+    margin-left: 1630px;
+    width: 80px;
+    height: 240px;
     border-radius: 200px;
 }
 #locker3:hover {
@@ -823,8 +824,8 @@ body {
     border: 5px solid rgb(39, 0, 0);
     background-size: cover;
     background-repeat: no-repeat;
-    width: 1530px;
-    height: 1020px;
+    width: 1920px;
+    height: 1280px;
     margin: 0 0 0 0;
 }
 
@@ -832,10 +833,10 @@ body {
     z-index: 2;
     display: block;
     position: absolute;
-    margin-top: 480px;
-    margin-left: 1465px;
-    height: 40px;
-    width: 35px;
+    margin-top: 602px;
+    margin-left: 1838px;
+    height: 50px;
+    width: 44px;
 }
 #light:hover {
     background-color: rgba(255, 253, 253, 0.301);
@@ -868,10 +869,10 @@ body {
     z-index: 3;
     display: none;
     position: absolute;
-    top: 640px;
-    left: 390px;
-    width: 150px;
-    height: 60px;
+    margin-top: 803px;
+    margin-left: 489px;
+    width: 188px;
+    height: 75px;
     border-radius: 200px;
 }
 #blood:hover {
@@ -883,10 +884,10 @@ body {
     z-index: 1;
     display: none;
     position: absolute;
-    top: 774px;
-    left: 850px;
-    width: 50px;
-    height: 15px;
+    margin-top: 971px;
+    margin-left: 1067px;
+    width: 63px;
+    height: 19px;
     border-radius: 200px;
 }
 #keyFV:hover {
@@ -897,47 +898,47 @@ body {
     z-index: 0;
     display: none;
     position: absolute;
-    top: 755px;
-    left: 840px;
-    width: 100px;
-    height: 50px;
+    margin-top: 948px;
+    margin-left: 1054px;
+    width: 125px;
+    height: 63px;
     border-radius: 200px;
 }
 
 #dave {
-    width: 30px;
-    height: 140px;
+    width: 38px;
+    height: 176px;
 }
 #trim2 {
     overflow: hidden;
     display: none;
     z-index: 2;
     position: absolute;
-    top: 475px;
-    left: 540px;
-    width: 30px;
-    height: 90px;   
+    margin-top: 596px;
+    margin-left: 678px;
+    width: 38px;
+    height: 113px;   
 }
 #dave.stage2 {
-    width: 180px;
-    height: 90px;
+    width: 226px;
+    height: 113px;
 }
 #trim2.stage2 {
-    top: 630px;
-    left: 570px;
-    width: 180px;
-    height: 50px; 
+    margin-top: 791px;
+    margin-left: 715px;
+    width: 226px;
+    height: 63px; 
 }
 
 #dave.stage3 {
-    width: 600px;
-    height: 350px;
+    width: 753px;
+    height: 439px;
 }
 #trim2.stage3 {
-    top: 850px;
-    left: 180px;
-    width: 900px;
-    height: 180px;   
+    margin-top: 1067px;
+    margin-left: 226px;
+    width: 1129px;
+    height: 226px;   
 }
 
 #countdown {
@@ -947,47 +948,47 @@ body {
     font-size: 300%;
     position: fixed;
     top: 20px;
-    margin-left: 40%;
+    margin-left: 45%;
     margin-right: 50%;
 }
 
 #monster {
-    width: 500px;
-    height: 400px;
+    width: 627px;
+    height: 502px;
 }
 #trim {
     overflow: hidden;
     display: none;
     z-index: 0;
     position: absolute;
-    top: 450px;
-    left: 180px;
-    width: 850px;
-    height: 520px;
+    margin-top: 565px;
+    margin-left: 226px;
+    width: 1067px;
+    height: 653px;
 }
 
 #monster.stage2 {
-    width: 850px;
-    height: 680px;
+    width: 1067px;
+    height: 853px;
 }
 
 #trim.stage2 {
-    top: 450px;
-    left: 80px;
-    width: 850px;
-    height: 520px;
+    margin-top: 565px;
+    margin-left: 100px;
+    width: 1067px;
+    height: 653px;
 }
 
 #monster.stage3 {
-    width: 3000px;
-    height: 2400px;
+    width: 3765px;
+    height: 3012px;
 }
 
 #trim.stage3 {
-    top: 180px;
-    left: -1600px;
-    width: 2500px;
-    height: 845px;
+    margin-top: 226px;
+    margin-left: -2008px;
+    width: 3137px;
+    height: 1060px;
 }
 
 #monsterScare {
@@ -1007,7 +1008,7 @@ body {
     display: none;
     position: fixed;
     bottom: 0;
-    width: 1000px;
+    width: 1255px;
     margin-left: auto;
     margin-right: auto;
     left: 0;
@@ -1019,8 +1020,8 @@ body {
     display: none;
     position: fixed;
     bottom: 0;
-    width: 1000px;
-    left: -400px;
+    width: 1255px;
+    left: -502px;
     transform: rotate(68deg);
 }
 
@@ -1029,8 +1030,8 @@ body {
     display: none;
     position: fixed;
     bottom: 0;
-    width: 1000px;
-    right: -400px;
+    width: 1255px;
+    right: -502px;
     transform: rotate(-32deg);
 }
 
@@ -1038,9 +1039,9 @@ body {
     z-index: 0;
     display: none;
     position: fixed;
-    bottom: -100px;
-    width: 1000px;
-    right: 200;
+    bottom: -125px;
+    width: 1255px;
+    right: 251;
     transform: rotate(32deg);
 }
 
@@ -1049,10 +1050,10 @@ body {
     display: none;
     position: absolute;
     opacity: 0.4;
-    top: 570px;
-    left: 230px;
-    width: 60px;
-    height: 30px;
+    margin-top: 715px;
+    margin-left: 287px;
+    width: 75px;
+    height: 38px;
     transform: rotate(-10deg);
 }
 
@@ -1060,10 +1061,10 @@ body {
     display: none;
     position: absolute;
     opacity: 0.8;
-    top: 500px;
-    left: 830px;
-    width: 60px;
-    height: 30px;
+    margin-top: 627px;
+    margin-left: 1042px;
+    width: 75px;
+    height: 38px;
     transform: rotate(40deg);
 }
 
@@ -1071,10 +1072,10 @@ body {
     display: none;
     position: absolute;
     opacity: 0.5;
-    top: 720px;
-    left: 1080px;
-    width: 60px;
-    height: 30px;
+    margin-top: 904px;
+    margin-left: 1355px;
+    width: 75px;
+    height: 38px;
     transform: rotate(160deg);
 }
 
