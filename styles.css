@@ -137,14 +137,15 @@ body {
 
 #ads {
     z-index: 1;
-    grid-column-start: 4;
-    grid-column-end: 5;
+    grid-column-start: 5;
+    grid-column-end: 4;
     border: 5px solid rgb(0, 0, 0);
     height: 100%;
     width: 100%;
     max-width: 300px;
     background-color: rgb(10, 10, 10);
     padding: 10px, 10px, 10px, 10px;
+    margin: 0, 0, 0, 0;
 }
 
 #ads p {

@@ -83,6 +83,7 @@ function init() {
     localStorage.setItem('stairLock', 1);
     localStorage.setItem('stairKey', 0);
     localStorage.setItem('lockerLock', 1);
+    localStorage.setItem('secretsFound', 0);
 
 // First Visit Variables
     localStorage.setItem('hallwayFirst', 1);   
@@ -1989,7 +1990,11 @@ function yes2() {
             document.getElementById("no").style.display = "none";
             document.getElementById("chatbox").style.display = "none";
             localStorage.setItem('stairLock', 0)
-            window.location.href="win.html";
+            if (parseInt(localStorage.getItem('secretsFound')) == 1) {
+                window.location.href="bonus.html";
+            } else {
+                window.location.href="win.html";
+            }
             break;
         case 13:
             document.getElementById("yes").style.display = "none";
